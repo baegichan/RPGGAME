@@ -6,7 +6,15 @@ public class Block : MonoBehaviour
 {
     public GameObject Point;
     public Vector3[] path = new Vector3[3];
-    
+    public enum BLOCK_TYPE
+    {
+     TEST,
+     FOREST,
+     RIVER,
+     ROCK,
+     GRASS
+    }
+    public BLOCK_TYPE type = BLOCK_TYPE.TEST;
     IEnumerator SpawnBlock()
     {
         yield return new WaitForSeconds(Random.Range(0.0f,1.5f));
@@ -18,6 +26,7 @@ public class Block : MonoBehaviour
     }
     private void Awake()
     {
+        //TESTCODE
         if(Point==null)
         {
             Point = transform.GetChild(0).gameObject;
