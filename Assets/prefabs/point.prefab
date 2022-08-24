@@ -118,6 +118,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cube
       objectReference: {fileID: 0}
+    - target: {fileID: 2035931821483365506, guid: b0b76087b10809d45b59c674f19ee4ec,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9abd9c87ba458d040af19e95c7ad7b2b, type: 2}
+    - target: {fileID: 5762156689835846972, guid: b0b76087b10809d45b59c674f19ee4ec,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b0b76087b10809d45b59c674f19ee4ec, type: 3}
 --- !u!1 &5423240332789280260 stripped

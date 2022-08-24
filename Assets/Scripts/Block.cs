@@ -6,6 +6,7 @@ public class Block : MonoBehaviour
 {
     public GameObject Point;
     public Vector3[] path = new Vector3[3];
+    
     public enum BLOCK_TYPE
     {
      TEST,
