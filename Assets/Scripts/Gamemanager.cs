@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Gamemanager : MonoBehaviour
 {
-    static Gamemanager instance;
+    public static Gamemanager instance;
     public int test = 1;
     GameObject COBJ;
     public Material area__mtl;
@@ -13,6 +13,10 @@ public class Gamemanager : MonoBehaviour
         get {return COBJ; }
         set {COBJ=value; }
     }
+
+
+    List<List<GameObject>> map = new List<List<GameObject>>();
+
 
     //testcode
     public void ChangeCurrentTarget()
