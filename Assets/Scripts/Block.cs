@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Block : MonoBehaviour
 {
-    public GameObject Point;
+    public GameObject Block_obj;
+    public GameObject Area;
     public Vector3[] path = new Vector3[3];
     
     public bool stable = true;
@@ -20,7 +21,7 @@ public class Block : MonoBehaviour
     IEnumerator SpawnBlock()
     {
         yield return new WaitForSeconds(Random.Range(0.0f,1.5f));
-        Point.SetActive(true);
+        Block_obj.SetActive(true);
     }
     IEnumerator DelBlock()
     {
@@ -31,21 +32,21 @@ public class Block : MonoBehaviour
     }
     public void Block_Move()
     {   
-        iTween.MoveTo(Point, iTween.Hash("path", path, "time", 1, "easetype", iTween.EaseType.linear, "looptype", iTween.LoopType.none, "movetopath", false));
+        iTween.MoveTo(Block_obj, iTween.Hash("path", path, "time", 1, "easetype", iTween.EaseType.linear, "looptype", iTween.LoopType.none, "movetopath", false));
     }
     public void Block_Down()
     {
-        iTween.MoveTo(Point,Point.transform.position-new Vector3(0,30,0),9);
+        iTween.MoveTo(Block_obj, Block_obj.transform.position-new Vector3(0,30,0),9);
         
     }
     private void Awake()
     {
         //TESTCODE
-        if(Point==null)
+        if(Block_obj == null)
         {
-            Point = transform.GetChild(0).gameObject;
+            Block_obj = transform.GetChild(0).gameObject;
         }
-        path[0] = (Point.transform.position);
+        path[0] = (Block_obj.transform.position);
         path[1] = (this.transform.position + new Vector3(0, 1 * Random.Range(0.8f, 1.0f), 0));
         path[2] = (this.transform.position );
         StartCoroutine(SpawnBlock());

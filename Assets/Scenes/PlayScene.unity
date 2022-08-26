@@ -123,6 +123,505 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &23342152
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 23342153}
+  - component: {fileID: 23342156}
+  - component: {fileID: 23342155}
+  - component: {fileID: 23342154}
+  m_Layer: 0
+  m_Name: Sphere
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &23342153
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 23342152}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 583646776}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &23342154
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 23342152}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &23342155
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 23342152}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &23342156
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 23342152}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &57328337
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 57328341}
+  - component: {fileID: 57328340}
+  - component: {fileID: 57328339}
+  - component: {fileID: 57328338}
+  m_Layer: 0
+  m_Name: GameObject (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!54 &57328338
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 57328337}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &57328339
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 57328337}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!114 &57328340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 57328337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd27ade04f6b4cb47a5577c2e4a28f99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cha_name: 
+  cha_level: 1
+  cha_status:
+    HP: 0
+    MP: 0
+    ATK: 0
+    DEF: 0
+    MAG: 0
+    RES: 0
+    SPEED: 0
+    MOVE: 2
+    JUMP: 1
+    fire_res: 0
+    water_res: 0
+    wind_res: 0
+    lightning_res: 0
+    dark_res: 0
+    light_res: 0
+    poison_res: 0
+    sleep_res: 0
+    sturn_res: 0
+    burns_res: 0
+    frostbite_res: 0
+    shock_res: 0
+  location: {x: 8, y: 0, z: 8}
+  weapon:
+    equip_name: 
+    equip_image: {fileID: 0}
+    equipstatus:
+      HP: 0
+      MP: 0
+      ATK: 0
+      DEF: 0
+      MAG: 0
+      RES: 0
+      SPEED: 0
+      MOVE: 0
+      JUMP: 0
+      fire_res: 0
+      water_res: 0
+      wind_res: 0
+      lightning_res: 0
+      dark_res: 0
+      light_res: 0
+      poison_res: 0
+      sleep_res: 0
+      sturn_res: 0
+      burns_res: 0
+      frostbite_res: 0
+      shock_res: 0
+    type: 0
+    two_hand: 0
+  shiled:
+    equip_name: 
+    equip_image: {fileID: 0}
+    equipstatus:
+      HP: 0
+      MP: 0
+      ATK: 0
+      DEF: 0
+      MAG: 0
+      RES: 0
+      SPEED: 0
+      MOVE: 0
+      JUMP: 0
+      fire_res: 0
+      water_res: 0
+      wind_res: 0
+      lightning_res: 0
+      dark_res: 0
+      light_res: 0
+      poison_res: 0
+      sleep_res: 0
+      sturn_res: 0
+      burns_res: 0
+      frostbite_res: 0
+      shock_res: 0
+    Armor_type: 0
+  helmet:
+    equip_name: 
+    equip_image: {fileID: 0}
+    equipstatus:
+      HP: 0
+      MP: 0
+      ATK: 0
+      DEF: 0
+      MAG: 0
+      RES: 0
+      SPEED: 0
+      MOVE: 0
+      JUMP: 0
+      fire_res: 0
+      water_res: 0
+      wind_res: 0
+      lightning_res: 0
+      dark_res: 0
+      light_res: 0
+      poison_res: 0
+      sleep_res: 0
+      sturn_res: 0
+      burns_res: 0
+      frostbite_res: 0
+      shock_res: 0
+    Armor_type: 0
+  armor:
+    equip_name: 
+    equip_image: {fileID: 0}
+    equipstatus:
+      HP: 0
+      MP: 0
+      ATK: 0
+      DEF: 0
+      MAG: 0
+      RES: 0
+      SPEED: 0
+      MOVE: 0
+      JUMP: 0
+      fire_res: 0
+      water_res: 0
+      wind_res: 0
+      lightning_res: 0
+      dark_res: 0
+      light_res: 0
+      poison_res: 0
+      sleep_res: 0
+      sturn_res: 0
+      burns_res: 0
+      frostbite_res: 0
+      shock_res: 0
+    Armor_type: 0
+  pants:
+    equip_name: 
+    equip_image: {fileID: 0}
+    equipstatus:
+      HP: 0
+      MP: 0
+      ATK: 0
+      DEF: 0
+      MAG: 0
+      RES: 0
+      SPEED: 0
+      MOVE: 0
+      JUMP: 0
+      fire_res: 0
+      water_res: 0
+      wind_res: 0
+      lightning_res: 0
+      dark_res: 0
+      light_res: 0
+      poison_res: 0
+      sleep_res: 0
+      sturn_res: 0
+      burns_res: 0
+      frostbite_res: 0
+      shock_res: 0
+    Armor_type: 0
+  shoes:
+    equip_name: 
+    equip_image: {fileID: 0}
+    equipstatus:
+      HP: 0
+      MP: 0
+      ATK: 0
+      DEF: 0
+      MAG: 0
+      RES: 0
+      SPEED: 0
+      MOVE: 0
+      JUMP: 0
+      fire_res: 0
+      water_res: 0
+      wind_res: 0
+      lightning_res: 0
+      dark_res: 0
+      light_res: 0
+      poison_res: 0
+      sleep_res: 0
+      sturn_res: 0
+      burns_res: 0
+      frostbite_res: 0
+      shock_res: 0
+    Armor_type: 0
+  current_ingame_status:
+    HP: 0
+    MP: 0
+    ATK: 0
+    DEF: 0
+    MAG: 0
+    RES: 0
+    SPEED: 0
+    MOVE: 0
+    JUMP: 0
+    fire_res: 0
+    water_res: 0
+    wind_res: 0
+    lightning_res: 0
+    dark_res: 0
+    light_res: 0
+    poison_res: 0
+    sleep_res: 0
+    sturn_res: 0
+    burns_res: 0
+    frostbite_res: 0
+    shock_res: 0
+  max_ingame_status:
+    HP: 0
+    MP: 0
+    ATK: 0
+    DEF: 0
+    MAG: 0
+    RES: 0
+    SPEED: 0
+    MOVE: 0
+    JUMP: 0
+    fire_res: 0
+    water_res: 0
+    wind_res: 0
+    lightning_res: 0
+    dark_res: 0
+    light_res: 0
+    poison_res: 0
+    sleep_res: 0
+    sturn_res: 0
+    burns_res: 0
+    frostbite_res: 0
+    shock_res: 0
+  buff: []
+  current: 0
+  test: []
+--- !u!4 &57328341
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 57328337}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 8, y: 1, z: 8}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 237915903}
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &237915902
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 237915903}
+  - component: {fileID: 237915906}
+  - component: {fileID: 237915905}
+  - component: {fileID: 237915904}
+  m_Layer: 0
+  m_Name: Sphere
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &237915903
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 237915902}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 57328341}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &237915904
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 237915902}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &237915905
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 237915902}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &237915906
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 237915902}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &335593668
 GameObject:
   m_ObjectHideFlags: 0
@@ -153,7 +652,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   test: 1
-  area__mtl: {fileID: 2100000, guid: 9abd9c87ba458d040af19e95c7ad7b2b, type: 2}
+  area_mtl: {fileID: 2100000, guid: 9abd9c87ba458d040af19e95c7ad7b2b, type: 2}
+  in_game_character: []
 --- !u!4 &335593670
 Transform:
   m_ObjectHideFlags: 0
@@ -200,6 +700,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 588624529}
   m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &404049690
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 404049691}
+  m_Layer: 0
+  m_Name: GameObject (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &404049691
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 404049690}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.758053, y: 1.5371256, z: 4.1679354}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &504438300
 GameObject:
@@ -265,6 +796,311 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &583646775
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 583646776}
+  - component: {fileID: 583646777}
+  - component: {fileID: 583646779}
+  - component: {fileID: 583646778}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &583646776
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 583646775}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7, y: 1, z: 4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 23342153}
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &583646777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 583646775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd27ade04f6b4cb47a5577c2e4a28f99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cha_name: 
+  cha_level: 1
+  cha_status:
+    HP: 0
+    MP: 0
+    ATK: 0
+    DEF: 0
+    MAG: 0
+    RES: 0
+    SPEED: 0
+    MOVE: 3
+    JUMP: 1
+    fire_res: 0
+    water_res: 0
+    wind_res: 0
+    lightning_res: 0
+    dark_res: 0
+    light_res: 0
+    poison_res: 0
+    sleep_res: 0
+    sturn_res: 0
+    burns_res: 0
+    frostbite_res: 0
+    shock_res: 0
+  location: {x: 7, y: 0, z: 4}
+  weapon:
+    equip_name: 
+    equip_image: {fileID: 0}
+    equipstatus:
+      HP: 0
+      MP: 0
+      ATK: 0
+      DEF: 0
+      MAG: 0
+      RES: 0
+      SPEED: 0
+      MOVE: 0
+      JUMP: 0
+      fire_res: 0
+      water_res: 0
+      wind_res: 0
+      lightning_res: 0
+      dark_res: 0
+      light_res: 0
+      poison_res: 0
+      sleep_res: 0
+      sturn_res: 0
+      burns_res: 0
+      frostbite_res: 0
+      shock_res: 0
+    type: 0
+    two_hand: 0
+  shiled:
+    equip_name: 
+    equip_image: {fileID: 0}
+    equipstatus:
+      HP: 0
+      MP: 0
+      ATK: 0
+      DEF: 0
+      MAG: 0
+      RES: 0
+      SPEED: 0
+      MOVE: 0
+      JUMP: 0
+      fire_res: 0
+      water_res: 0
+      wind_res: 0
+      lightning_res: 0
+      dark_res: 0
+      light_res: 0
+      poison_res: 0
+      sleep_res: 0
+      sturn_res: 0
+      burns_res: 0
+      frostbite_res: 0
+      shock_res: 0
+    Armor_type: 0
+  helmet:
+    equip_name: 
+    equip_image: {fileID: 0}
+    equipstatus:
+      HP: 0
+      MP: 0
+      ATK: 0
+      DEF: 0
+      MAG: 0
+      RES: 0
+      SPEED: 0
+      MOVE: 0
+      JUMP: 0
+      fire_res: 0
+      water_res: 0
+      wind_res: 0
+      lightning_res: 0
+      dark_res: 0
+      light_res: 0
+      poison_res: 0
+      sleep_res: 0
+      sturn_res: 0
+      burns_res: 0
+      frostbite_res: 0
+      shock_res: 0
+    Armor_type: 0
+  armor:
+    equip_name: 
+    equip_image: {fileID: 0}
+    equipstatus:
+      HP: 0
+      MP: 0
+      ATK: 0
+      DEF: 0
+      MAG: 0
+      RES: 0
+      SPEED: 0
+      MOVE: 0
+      JUMP: 0
+      fire_res: 0
+      water_res: 0
+      wind_res: 0
+      lightning_res: 0
+      dark_res: 0
+      light_res: 0
+      poison_res: 0
+      sleep_res: 0
+      sturn_res: 0
+      burns_res: 0
+      frostbite_res: 0
+      shock_res: 0
+    Armor_type: 0
+  pants:
+    equip_name: 
+    equip_image: {fileID: 0}
+    equipstatus:
+      HP: 0
+      MP: 0
+      ATK: 0
+      DEF: 0
+      MAG: 0
+      RES: 0
+      SPEED: 0
+      MOVE: 0
+      JUMP: 0
+      fire_res: 0
+      water_res: 0
+      wind_res: 0
+      lightning_res: 0
+      dark_res: 0
+      light_res: 0
+      poison_res: 0
+      sleep_res: 0
+      sturn_res: 0
+      burns_res: 0
+      frostbite_res: 0
+      shock_res: 0
+    Armor_type: 0
+  shoes:
+    equip_name: 
+    equip_image: {fileID: 0}
+    equipstatus:
+      HP: 0
+      MP: 0
+      ATK: 0
+      DEF: 0
+      MAG: 0
+      RES: 0
+      SPEED: 0
+      MOVE: 0
+      JUMP: 0
+      fire_res: 0
+      water_res: 0
+      wind_res: 0
+      lightning_res: 0
+      dark_res: 0
+      light_res: 0
+      poison_res: 0
+      sleep_res: 0
+      sturn_res: 0
+      burns_res: 0
+      frostbite_res: 0
+      shock_res: 0
+    Armor_type: 0
+  current_ingame_status:
+    HP: 0
+    MP: 0
+    ATK: 0
+    DEF: 0
+    MAG: 0
+    RES: 0
+    SPEED: 0
+    MOVE: 0
+    JUMP: 0
+    fire_res: 0
+    water_res: 0
+    wind_res: 0
+    lightning_res: 0
+    dark_res: 0
+    light_res: 0
+    poison_res: 0
+    sleep_res: 0
+    sturn_res: 0
+    burns_res: 0
+    frostbite_res: 0
+    shock_res: 0
+  max_ingame_status:
+    HP: 0
+    MP: 0
+    ATK: 0
+    DEF: 0
+    MAG: 0
+    RES: 0
+    SPEED: 0
+    MOVE: 0
+    JUMP: 0
+    fire_res: 0
+    water_res: 0
+    wind_res: 0
+    lightning_res: 0
+    dark_res: 0
+    light_res: 0
+    poison_res: 0
+    sleep_res: 0
+    sturn_res: 0
+    burns_res: 0
+    frostbite_res: 0
+    shock_res: 0
+  buff: []
+  current: 0
+  test: []
+--- !u!54 &583646778
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 583646775}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &583646779
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 583646775}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!1 &588624528
 GameObject:
   m_ObjectHideFlags: 0
@@ -447,7 +1283,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &923618638
 GameObject:
@@ -916,7 +1752,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1851107676
 GameObject:
@@ -949,283 +1785,6 @@ Transform:
   m_Father: {fileID: 573646997}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1944742114
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1944742116}
-  - component: {fileID: 1944742115}
-  m_Layer: 0
-  m_Name: TestCha
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1944742115
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1944742114}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd27ade04f6b4cb47a5577c2e4a28f99, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cha_name: 
-  cha_level: 1
-  cha_status:
-    HP: 100
-    MP: 100
-    ATK: 0
-    DEF: 0
-    MAG: 0
-    RES: 0
-    SPEED: 0
-    MOVE: 3
-    JUMP: 1
-    fire_res: 0
-    water_res: 0
-    wind_res: 0
-    lightning_res: 0
-    dark_res: 0
-    light_res: 0
-    poison_res: 0
-    sleep_res: 0
-    sturn_res: 0
-    burns_res: 0
-    frostbite_res: 0
-    shock_res: 0
-  weapon:
-    equip_name: 
-    equip_image: {fileID: 0}
-    equipstatus:
-      HP: 0
-      MP: 0
-      ATK: 0
-      DEF: 0
-      MAG: 0
-      RES: 0
-      SPEED: 0
-      MOVE: 3
-      JUMP: 1
-      fire_res: 0
-      water_res: 0
-      wind_res: 0
-      lightning_res: 0
-      dark_res: 0
-      light_res: 0
-      poison_res: 0
-      sleep_res: 0
-      sturn_res: 0
-      burns_res: 0
-      frostbite_res: 0
-      shock_res: 0
-    type: 0
-    two_hand: 0
-  shiled:
-    equip_name: 
-    equip_image: {fileID: 0}
-    equipstatus:
-      HP: 0
-      MP: 0
-      ATK: 0
-      DEF: 0
-      MAG: 0
-      RES: 0
-      SPEED: 0
-      MOVE: 3
-      JUMP: 1
-      fire_res: 0
-      water_res: 0
-      wind_res: 0
-      lightning_res: 0
-      dark_res: 0
-      light_res: 0
-      poison_res: 0
-      sleep_res: 0
-      sturn_res: 0
-      burns_res: 0
-      frostbite_res: 0
-      shock_res: 0
-    Armor_type: 0
-  helmet:
-    equip_name: 
-    equip_image: {fileID: 0}
-    equipstatus:
-      HP: 0
-      MP: 0
-      ATK: 0
-      DEF: 0
-      MAG: 0
-      RES: 0
-      SPEED: 0
-      MOVE: 3
-      JUMP: 1
-      fire_res: 0
-      water_res: 0
-      wind_res: 0
-      lightning_res: 0
-      dark_res: 0
-      light_res: 0
-      poison_res: 0
-      sleep_res: 0
-      sturn_res: 0
-      burns_res: 0
-      frostbite_res: 0
-      shock_res: 0
-    Armor_type: 0
-  armor:
-    equip_name: 
-    equip_image: {fileID: 0}
-    equipstatus:
-      HP: 0
-      MP: 0
-      ATK: 0
-      DEF: 0
-      MAG: 0
-      RES: 0
-      SPEED: 0
-      MOVE: 3
-      JUMP: 1
-      fire_res: 0
-      water_res: 0
-      wind_res: 0
-      lightning_res: 0
-      dark_res: 0
-      light_res: 0
-      poison_res: 0
-      sleep_res: 0
-      sturn_res: 0
-      burns_res: 0
-      frostbite_res: 0
-      shock_res: 0
-    Armor_type: 0
-  pants:
-    equip_name: 
-    equip_image: {fileID: 0}
-    equipstatus:
-      HP: 0
-      MP: 0
-      ATK: 0
-      DEF: 0
-      MAG: 0
-      RES: 0
-      SPEED: 0
-      MOVE: 3
-      JUMP: 1
-      fire_res: 0
-      water_res: 0
-      wind_res: 0
-      lightning_res: 0
-      dark_res: 0
-      light_res: 0
-      poison_res: 0
-      sleep_res: 0
-      sturn_res: 0
-      burns_res: 0
-      frostbite_res: 0
-      shock_res: 0
-    Armor_type: 0
-  shoes:
-    equip_name: 
-    equip_image: {fileID: 0}
-    equipstatus:
-      HP: 0
-      MP: 0
-      ATK: 0
-      DEF: 0
-      MAG: 0
-      RES: 0
-      SPEED: 0
-      MOVE: 3
-      JUMP: 1
-      fire_res: 0
-      water_res: 0
-      wind_res: 0
-      lightning_res: 0
-      dark_res: 0
-      light_res: 0
-      poison_res: 0
-      sleep_res: 0
-      sturn_res: 0
-      burns_res: 0
-      frostbite_res: 0
-      shock_res: 0
-    Armor_type: 0
-  current_ingame_status:
-    HP: 0
-    MP: 0
-    ATK: 0
-    DEF: 0
-    MAG: 0
-    RES: 0
-    SPEED: 0
-    MOVE: 3
-    JUMP: 1
-    fire_res: 0
-    water_res: 0
-    wind_res: 0
-    lightning_res: 0
-    dark_res: 0
-    light_res: 0
-    poison_res: 0
-    sleep_res: 0
-    sturn_res: 0
-    burns_res: 0
-    frostbite_res: 0
-    shock_res: 0
-  max_ingame_status:
-    HP: 0
-    MP: 0
-    ATK: 0
-    DEF: 0
-    MAG: 0
-    RES: 0
-    SPEED: 0
-    MOVE: 3
-    JUMP: 1
-    fire_res: 0
-    water_res: 0
-    wind_res: 0
-    lightning_res: 0
-    dark_res: 0
-    light_res: 0
-    poison_res: 0
-    sleep_res: 0
-    sturn_res: 0
-    burns_res: 0
-    frostbite_res: 0
-    shock_res: 0
-  buff: []
-  current: 0
-  test:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
---- !u!4 &1944742116
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1944742114}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1998476705
 GameObject:
   m_ObjectHideFlags: 0
@@ -1237,7 +1796,7 @@ GameObject:
   - component: {fileID: 1998476707}
   - component: {fileID: 1998476706}
   m_Layer: 0
-  m_Name: SpawnManager
+  m_Name: MapManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1255,10 +1814,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5a651f97cd1d364bae836100f419210, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  point: {fileID: 5423240331655310378, guid: aae33e4e9cda5d54cadd19daa392d036, type: 3}
-  testmap: {fileID: 11400000, guid: 7d9eba2cf08f4374ea58a2568de81b8e, type: 2}
+  block: {fileID: 5423240331655310378, guid: aae33e4e9cda5d54cadd19daa392d036, type: 3}
+  testmap: {fileID: 11400000, guid: a16fa9b4d9a732b45b518d122a39bbf8, type: 2}
   up: {fileID: 923618639}
   down: {fileID: 1851107677}
+  testCha: {fileID: 8370117220510059656, guid: 9782b3f4a92ade640908501bab6d41a6, type: 3}
 --- !u!4 &1998476707
 Transform:
   m_ObjectHideFlags: 0
@@ -1340,7 +1900,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2138156269
 GameObject:
@@ -1436,10 +1996,84 @@ RectTransform:
   m_Children:
   - {fileID: 927467003}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1001 &8370117219125484379
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8370117220510059656, guid: 9782b3f4a92ade640908501bab6d41a6,
+        type: 3}
+      propertyPath: m_Name
+      value: Cha
+      objectReference: {fileID: 0}
+    - target: {fileID: 8370117220510059656, guid: 9782b3f4a92ade640908501bab6d41a6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8370117220510059660, guid: 9782b3f4a92ade640908501bab6d41a6,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 8370117220510059660, guid: 9782b3f4a92ade640908501bab6d41a6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8370117220510059660, guid: 9782b3f4a92ade640908501bab6d41a6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8370117220510059660, guid: 9782b3f4a92ade640908501bab6d41a6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8370117220510059660, guid: 9782b3f4a92ade640908501bab6d41a6,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8370117220510059660, guid: 9782b3f4a92ade640908501bab6d41a6,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8370117220510059660, guid: 9782b3f4a92ade640908501bab6d41a6,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8370117220510059660, guid: 9782b3f4a92ade640908501bab6d41a6,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8370117220510059660, guid: 9782b3f4a92ade640908501bab6d41a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8370117220510059660, guid: 9782b3f4a92ade640908501bab6d41a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8370117220510059660, guid: 9782b3f4a92ade640908501bab6d41a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9782b3f4a92ade640908501bab6d41a6, type: 3}

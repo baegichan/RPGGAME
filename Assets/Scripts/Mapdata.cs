@@ -22,7 +22,6 @@ public class Block_Data
 {
     public Block.BLOCK_TYPE type;
     public float height;
-
     public bool stable = false;
 }
 [System.Serializable]

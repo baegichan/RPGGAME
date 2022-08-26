@@ -9,7 +9,7 @@ public class Character : MonoBehaviour
     public Status cha_status = new Status();
     public List<Skill> skills = new List<Skill>();
 
-    
+    public Vector3 location;
 
     public Weapon weapon;
     public Armor shiled;
@@ -185,18 +185,49 @@ public class Character : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.M))
+    #if UNITY_EDITOR
+        if(Input.GetKeyUp(KeyCode.M))
         {
-            Move();
+            MoverangeTest1();
         }
+        if (Input.GetKeyUp(KeyCode.N))
+        {
+            MoverangeTest2();
+        }
+    #endif
+
     }
     public Transform[] test;
     public void Move()
     {
        
-        StartCoroutine(Movement(test));
+
+       // StartCoroutine(Movement(test));
     }
-  
+    public void Move(Vector3 target)
+    {
+
+    }
+
+
+    public void MoverangeTest1()
+    {
+        MapManager.s_instance.MoveCheck(this, true);
+    }
+    public void MoverangeTest2()
+    {
+        MapManager.s_instance.MoveCheck(this, false);
+    }
+
+
+    public void Resist()
+    {
+        Gamemanager.s_instance.in_game_character.Add(this);
+    }
+    public void Movable_block()
+    {
+       
+    }
     IEnumerator Movement(Transform[] path)
     {
         for(int i = 0; i<path.Length-1;i++)
@@ -215,14 +246,16 @@ public class Character : MonoBehaviour
     //이동시 점프 애니메이션 용 
     public void Jump(Vector3 current, Vector3 target) 
     {
-        Vector3 rvec = new Vector3( target.x-current.x, target.y , target.z - current.z);
         
-        iTween.MoveTo(gameObject, iTween.Hash("path", rvec, "time", 1, "easetype", iTween.EaseType.linear, "looptype", iTween.LoopType.none, "movetopath", false));
-        iTween.MoveTo(gameObject,new Vector3(current.x+rvec.x,rvec.y, current.z + rvec.z), 0.5f);
+        Vector3 rvec = new Vector3( target.x-current.x, target.y , target.z - current.z);
+        Vector3[] jump_path = { current, rvec, target };
+        iTween.MoveTo(gameObject, iTween.Hash("path", jump_path, "time", 1, "easetype", iTween.EaseType.linear, "looptype", iTween.LoopType.none, "movetopath", false));
+        //iTween.MoveTo(gameObject,new Vector3(current.x+rvec.x,rvec.y, current.z + rvec.z), 0.5f);
     }
     private void Start()
     {
         Cha_Init();
+        Resist();
     }
 }
 [System.Serializable]
