@@ -8,7 +8,23 @@ public class Block : MonoBehaviour
     public GameObject Area;
     public Vector3[] path = new Vector3[3];
     
-    public bool stable = true;
+    public bool stable;
+    public float height;
+    public float x_location;
+    public float z_location;
+
+    public void set_location(float x, float y, float z)
+    {
+        x_location = x;
+        height = y;
+        z_location = z;
+    }
+    public void set_location(Vector3 location)
+    {
+        x_location = location.x;
+        height = location.y;
+        z_location = location.z;
+    }
     public enum BLOCK_TYPE
     {
      TEST,
@@ -38,6 +54,10 @@ public class Block : MonoBehaviour
     {
         iTween.MoveTo(Block_obj, Block_obj.transform.position-new Vector3(0,30,0),9);
         
+    }
+    public void Set_stable(bool value)
+    {
+        stable = value;
     }
     private void Awake()
     {

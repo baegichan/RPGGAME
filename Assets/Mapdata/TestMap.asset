@@ -16,313 +16,313 @@ MonoBehaviour:
   - block:
     - type: 2
       height: 0
-      stable: 0
+      not_stable: 1
     - type: 2
       height: 0
-      stable: 0
+      not_stable: 1
     - type: 2
       height: 0
-      stable: 0
+      not_stable: 1
     - type: 2
       height: 0
-      stable: 0
+      not_stable: 1
     - type: 2
       height: 0
-      stable: 0
+      not_stable: 1
     - type: 2
       height: 0
-      stable: 0
+      not_stable: 1
     - type: 2
       height: 0
-      stable: 0
+      not_stable: 1
     - type: 2
       height: 0
-      stable: 0
+      not_stable: 1
     - type: 2
       height: 0
-      stable: 0
+      not_stable: 1
     - type: 2
       height: 0
-      stable: 0
+      not_stable: 1
   - block:
     - type: 4
       height: 0.5
-      stable: 0
+      not_stable: 0
     - type: 4
       height: 0.5
-      stable: 0
+      not_stable: 0
     - type: 4
       height: 0.5
-      stable: 0
+      not_stable: 0
     - type: 4
       height: 1
-      stable: 0
+      not_stable: 0
     - type: 4
       height: 1
-      stable: 0
+      not_stable: 0
     - type: 4
       height: 1
-      stable: 0
+      not_stable: 0
     - type: 4
       height: 1
-      stable: 0
+      not_stable: 0
     - type: 4
       height: 1
-      stable: 0
+      not_stable: 0
     - type: 4
       height: 1
-      stable: 0
+      not_stable: 0
     - type: 4
       height: 1
-      stable: 0
+      not_stable: 0
   - block:
     - type: 4
       height: 1
-      stable: 0
+      not_stable: 0
     - type: 4
       height: 1
-      stable: 0
+      not_stable: 0
     - type: 4
       height: 1
-      stable: 0
+      not_stable: 0
     - type: 4
       height: 1.5
-      stable: 0
+      not_stable: 0
     - type: 4
       height: 2
-      stable: 0
+      not_stable: 0
     - type: 4
       height: 2
-      stable: 0
+      not_stable: 0
     - type: 4
       height: 2
-      stable: 0
+      not_stable: 0
     - type: 4
       height: 2
-      stable: 0
+      not_stable: 0
     - type: 4
       height: 2
-      stable: 0
+      not_stable: 0
     - type: 4
       height: 2
-      stable: 0
+      not_stable: 0
   - block:
     - type: 2
       height: 0
-      stable: 0
+      not_stable: 1
     - type: 2
       height: 0
-      stable: 0
+      not_stable: 1
     - type: 2
       height: 0
-      stable: 0
+      not_stable: 1
     - type: 4
       height: 0.5
-      stable: 0
+      not_stable: 0
     - type: 4
       height: 5
-      stable: 0
+      not_stable: 0
     - type: 4
       height: 1.5
-      stable: 0
+      not_stable: 0
     - type: 4
       height: 1.5
-      stable: 0
+      not_stable: 0
     - type: 4
       height: 1.5
-      stable: 0
+      not_stable: 0
     - type: 4
       height: 1.5
-      stable: 0
+      not_stable: 0
     - type: 4
       height: 1.5
-      stable: 0
+      not_stable: 0
   - block:
     - type: 4
       height: 1
-      stable: 0
+      not_stable: 0
     - type: 4
-      height: 1
-      stable: 0
+      height: 3
+      not_stable: 0
     - type: 2
       height: 0
-      stable: 0
+      not_stable: 1
     - type: 4
       height: 0.5
-      stable: 0
+      not_stable: 0
     - type: 4
       height: 0.5
-      stable: 0
+      not_stable: 0
     - type: 4
       height: 0.5
-      stable: 0
+      not_stable: 0
     - type: 4
       height: 0.5
-      stable: 0
+      not_stable: 0
     - type: 4
       height: 0.5
-      stable: 0
+      not_stable: 0
     - type: 4
       height: 0.5
-      stable: 0
+      not_stable: 0
     - type: 4
       height: 0.5
-      stable: 0
+      not_stable: 0
+  - block:
+    - type: 4
+      height: 2
+      not_stable: 0
+    - type: 4
+      height: 3
+      not_stable: 0
+    - type: 2
+      height: 0
+      not_stable: 1
+    - type: 4
+      height: 0.5
+      not_stable: 0
+    - type: 4
+      height: 0.5
+      not_stable: 0
+    - type: 4
+      height: 2
+      not_stable: 0
+    - type: 4
+      height: 0.5
+      not_stable: 0
+    - type: 4
+      height: 0.5
+      not_stable: 0
+    - type: 4
+      height: 0.5
+      not_stable: 0
+    - type: 4
+      height: 0.5
+      not_stable: 0
   - block:
     - type: 4
       height: 1
-      stable: 0
+      not_stable: 0
     - type: 4
       height: 1
-      stable: 0
+      not_stable: 0
     - type: 2
       height: 0
-      stable: 0
+      not_stable: 1
     - type: 4
       height: 0.5
-      stable: 0
+      not_stable: 0
     - type: 4
       height: 0.5
-      stable: 0
+      not_stable: 0
     - type: 4
       height: 0.5
-      stable: 0
+      not_stable: 0
     - type: 4
       height: 0.5
-      stable: 0
+      not_stable: 0
     - type: 4
       height: 0.5
-      stable: 0
+      not_stable: 0
+    - type: 4
+      height: 2
+      not_stable: 0
     - type: 4
       height: 0.5
-      stable: 0
-    - type: 4
-      height: 0.5
-      stable: 0
+      not_stable: 0
   - block:
     - type: 4
       height: 1
-      stable: 0
+      not_stable: 0
     - type: 4
       height: 1
-      stable: 0
+      not_stable: 0
     - type: 2
       height: 0
-      stable: 0
+      not_stable: 1
     - type: 4
       height: 0.5
-      stable: 0
+      not_stable: 0
     - type: 4
       height: 0.5
-      stable: 0
+      not_stable: 0
     - type: 4
-      height: 0.5
-      stable: 0
+      height: 1
+      not_stable: 0
     - type: 4
-      height: 0.5
-      stable: 0
+      height: 1
+      not_stable: 0
     - type: 4
-      height: 0.5
-      stable: 0
+      height: 2
+      not_stable: 0
     - type: 4
-      height: 0.5
-      stable: 0
+      height: 2
+      not_stable: 0
     - type: 4
-      height: 0.5
-      stable: 0
+      height: 1.5
+      not_stable: 0
   - block:
     - type: 4
       height: 1
-      stable: 0
+      not_stable: 0
     - type: 4
       height: 1
-      stable: 0
+      not_stable: 0
     - type: 2
       height: 0
-      stable: 0
+      not_stable: 1
     - type: 4
       height: 0.5
-      stable: 0
+      not_stable: 0
+    - type: 4
+      height: 1
+      not_stable: 0
+    - type: 4
+      height: 1
+      not_stable: 0
+    - type: 4
+      height: 1
+      not_stable: 0
+    - type: 4
+      height: 1
+      not_stable: 0
+    - type: 4
+      height: 1
+      not_stable: 0
     - type: 4
       height: 0.5
-      stable: 0
-    - type: 4
-      height: 0.5
-      stable: 0
-    - type: 4
-      height: 0.5
-      stable: 0
-    - type: 4
-      height: 0.5
-      stable: 0
-    - type: 4
-      height: 0.5
-      stable: 0
-    - type: 4
-      height: 0.5
-      stable: 0
+      not_stable: 0
   - block:
     - type: 4
       height: 1
-      stable: 0
+      not_stable: 0
     - type: 4
       height: 1
-      stable: 0
+      not_stable: 0
     - type: 2
       height: 0
-      stable: 0
+      not_stable: 1
     - type: 4
       height: 0.5
-      stable: 0
+      not_stable: 0
     - type: 4
       height: 0.5
-      stable: 0
+      not_stable: 0
     - type: 4
       height: 0.5
-      stable: 0
+      not_stable: 0
     - type: 4
       height: 0.5
-      stable: 0
+      not_stable: 0
     - type: 4
       height: 0.5
-      stable: 0
+      not_stable: 0
     - type: 4
       height: 0.5
-      stable: 0
+      not_stable: 0
     - type: 4
       height: 0.5
-      stable: 0
-  - block:
-    - type: 4
-      height: 1
-      stable: 0
-    - type: 4
-      height: 1
-      stable: 0
-    - type: 2
-      height: 0
-      stable: 0
-    - type: 4
-      height: 0.5
-      stable: 0
-    - type: 4
-      height: 0.5
-      stable: 0
-    - type: 4
-      height: 0.5
-      stable: 0
-    - type: 4
-      height: 0.5
-      stable: 0
-    - type: 4
-      height: 0.5
-      stable: 0
-    - type: 4
-      height: 0.5
-      stable: 0
-    - type: 4
-      height: 0.5
-      stable: 0
+      not_stable: 0
   Map_material:
   - material: {fileID: 2100000, guid: 26adaaf8b3b65f44caa24d4a39ffecfa, type: 2}
     type: 4
