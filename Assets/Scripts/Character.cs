@@ -10,6 +10,9 @@ public class Character : MonoBehaviour
     public List<Skill> skills = new List<Skill>();
 
     public Vector3 location;
+    public float turn_speed = 0;
+    public GameObject cha_image;
+
 
     public Weapon weapon;
     public Armor shiled;
@@ -17,7 +20,7 @@ public class Character : MonoBehaviour
     public Armor armor;
     public Armor pants;
     public Armor shoes;
-
+    public Armor glove;
     public Status current_ingame_status = new Status();
     public Status max_ingame_status = new Status();
     public Growth growth_status = new Growth();
@@ -55,6 +58,7 @@ public class Character : MonoBehaviour
         Euip(armor);
         Euip(pants);
         Euip(shoes);
+        Euip(glove);
         current_ingame_status = max_ingame_status;
 
     }
@@ -105,21 +109,33 @@ public class Character : MonoBehaviour
     {
         switch (buff_skill.bufftype)
         {
-            case Buff.STURN:
-                
+            case Buff.STURN:  
+                //2턴 기절
                 break;
             case Buff.POISON:
+                // 3턴 5% 10% 15%
                 break;
             case Buff.SHOCK:
+                // 3턴 기절 확률적으로 못움직임
                 break;
             case Buff.SLEEP:
+                // 3턴 기절 맞으면 1.5배 들어감
                 break;
             case Buff.BURNS:
+                //2턴 10%
                 break;
             case Buff.STATUSDOWN:
+                //특정 스테이터스 다운
                 break;
             case Buff.FROSTBITE:
+                //3턴... 지속딜 이동범위감소
                 break;
+            case Buff.HEAL:
+                break;
+                //선고
+                //맹독
+            //case Buff.FROSTBITE
+
         }
     }
     public void Buff_Update()
@@ -223,6 +239,7 @@ public class Character : MonoBehaviour
     public void Resist()
     {
         Gamemanager.s_instance.in_game_character.Add(this);
+        cha_image = Gamemanager.s_instance.Spawnchaimage();
     }
     public void Movable_block()
     {
@@ -357,7 +374,8 @@ public enum EQUIP_TYPE
     HELMET,
     ARMOR,
     PANTS,
-    SHOES
+    SHOES,
+    GROVE,
 }
 public enum WEAPON_TYPE
 {

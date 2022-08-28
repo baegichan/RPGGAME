@@ -257,12 +257,3 @@ public class MapManager : MonoBehaviour
 
 }
 
-public class NODE
-{
-    public NODE(Block block)
-    {
-        this.block = block;
-    }
-    Block block;
-
-}
