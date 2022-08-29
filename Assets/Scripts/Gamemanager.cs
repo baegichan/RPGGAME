@@ -116,11 +116,15 @@ public class Gamemanager : MonoBehaviour
                 //int쪽으로 변경해야됨
                 if(hit.transform.tag=="Area")
                 {
-
+                    Block target = hit.transform.GetComponentInParent<Block>();
                     if (current_turn_character != null)
                     {
-                            current_turn_character.MoverangeTest2();
-                            TurnEnd();                       
+                        
+                        List<Transform> Move =MapManager.s_instance.Get_Path( target, MapManager.s_instance.current_map_data[(int)current_turn_character.location.x, (int)current_turn_character.location.z], MapManager.s_instance.Get_Active_Area());
+                        current_turn_character.Move(Move);
+                        //current_turn_character.MoverangeTest2();
+                        
+                           // TurnEnd();                       
                     }
                 }
             }

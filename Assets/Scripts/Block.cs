@@ -82,7 +82,6 @@ public class Block : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Tab))
         {
             StartCoroutine(DelBlock());
-          
         }
     }
 }

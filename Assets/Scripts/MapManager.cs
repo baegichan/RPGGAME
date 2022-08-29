@@ -16,10 +16,10 @@ public class MapManager : MonoBehaviour
 
     public Block[,] current_map_data;
 
-    public void Spawn_Cha(GameObject default_cha,Vector3  point)
+    public void Spawn_Cha(GameObject default_cha, Vector3 point)
     {
-       
-        GameObject ins= Instantiate(default_cha, new Vector3(point.x, current_map_data[(int)point.x, (int)point.z].Block_obj.transform.position.y+0.5f, point.z), Quaternion.identity);
+
+        GameObject ins = Instantiate(default_cha, new Vector3(point.x, current_map_data[(int)point.x, (int)point.z].Block_obj.transform.position.y + 0.5f, point.z), Quaternion.identity);
         ins.GetComponent<Character>().location = point;
     }
     IEnumerator Spawn_Routine(float time)
@@ -27,20 +27,20 @@ public class MapManager : MonoBehaviour
         yield return new WaitForSeconds(time);
         Spawn_Cha(testCha, new Vector3(UnityEngine.Random.Range(0, 10), 0, UnityEngine.Random.Range(0, 10)));
     }
-    public void Spawn_Map(Mapdata mapdata,Transform upblock,Transform underblock)
+    public void Spawn_Map(Mapdata mapdata, Transform upblock, Transform underblock)
     {
         current_map_data = null;
         current_map_data = new Block[mapdata.Map_data.Length, mapdata.Map_data.Length];
         // Instantiate();
-        for (int i =0; i<mapdata.Map_data.Length;i++)
-       {
-            for(int j =0;j<mapdata.Map_data.Length;j++)
+        for (int i = 0; i < mapdata.Map_data.Length; i++)
+        {
+            for (int j = 0; j < mapdata.Map_data.Length; j++)
             {
-                GameObject Spawned =  Instantiate(block, new Vector3(i,mapdata.Map_data[i].block[j].height,j),Quaternion.identity, upblock);
+                GameObject Spawned = Instantiate(block, new Vector3(i, mapdata.Map_data[i].block[j].height, j), Quaternion.identity, upblock);
                 current_map_data[i, j] = Spawned.GetComponent<Block>();
                 List<GameObject> instances = new List<GameObject>();
                 Spawned.GetComponent<Block>().set_location(i, mapdata.Map_data[i].block[j].height, j);
-                if(mapdata.Map_data[i].block[j].not_stable == true)
+                if (mapdata.Map_data[i].block[j].not_stable == true)
                 {
                     Spawned.GetComponent<Block>().Set_stable(false);
                 }
@@ -76,30 +76,30 @@ public class MapManager : MonoBehaviour
                     instances.Add(Instantiate(block, new Vector3(i, mapdata.Map_data[i].block[j].height - dis, j), Quaternion.identity, down));
 
                 }
-                
+
                 #endregion
                 foreach (Map_Material MT in mapdata.Map_material)
                 {
-                    if(mapdata.Map_data[i].block[j].type==MT.type)
+                    if (mapdata.Map_data[i].block[j].type == MT.type)
                     {
                         Spawned.GetComponent<Block>().Block_obj.GetComponent<MeshRenderer>().material = MT.material;
                         Spawned.GetComponent<Block>().type = MT.type;
-                        
+
                         foreach (GameObject obj in instances)
                         {
                             obj.GetComponent<Block>().Block_obj.GetComponent<MeshRenderer>().material = MT.material;
                             obj.GetComponent<Block>().type = MT.type;
                         }
                     }
-                }   
+                }
             }
-       }
-        
+        }
+
     }
     //점프력 적용해서 이동가능한 곳만 가능하게 수정 높이적용해서 수정 
-    public void MoveCheck(Character cha ,bool On)
+    public void MoveCheck(Character cha, bool On)
     {
-        int size =(int)Mathf.Sqrt(current_map_data.Length);
+        int size = (int)Get_Size();
         Block[,] blocks = new Block[size, size];
 
 
@@ -109,7 +109,7 @@ public class MapManager : MonoBehaviour
             //  blocks[(int)(cha.location.x + x), (int)(cha.location.z + z)] = current_map_data[(int)(cha.location.x + x), (int)(cha.location.z + z)];
             // blocks.Add(current_map_data[(int)(cha.location.x + x), (int)(cha.location.z + z)]);
             //current_map_data[(int)(cha.location.x + x), (int)(cha.location.z + z)].Area.SetActive(true);
-            MoveCheck(current_map_data[(int)(cha.location.x), (int)(cha.location.z)], cha.max_ingame_status.MOVE, cha.max_ingame_status.JUMP);
+            RangeCheck(current_map_data[(int)(cha.location.x), (int)(cha.location.z)], cha.max_ingame_status.MOVE, cha.max_ingame_status.JUMP);
         }
         else
         {
@@ -151,14 +151,143 @@ public class MapManager : MonoBehaviour
                 }
             }
         }
-       
-    }
 
+    }
+    public float Get_Size()
+    {
+        return Mathf.Sqrt(current_map_data.Length); ;
+    }
+    public Block[,] Get_Active_Area()
+    {
+
+        int size = (int)Get_Size();
+        Block[,] test = new Block[size, size];
+        for (int i = 0; i < size; i++)
+        {
+            for (int j = 0; j < size; j++)
+            {
+                if (current_map_data[i, j].Area.activeSelf)
+                {
+                    test[i, j] = current_map_data[i, j];
+                }
+            }
+        }
+        return test;
+    }
+    public List<Transform> Get_Path(Block start, Block target, Block[,] map)
+    {
+        int size = (int)Get_Size();
+        NODE[,] nodes = new NODE[size, size];
+        List<Transform> Path = new List<Transform>();
+
+        for (int i = 0; i < size; i++)
+        {
+            for (int j = 0; j < size; j++)
+            {
+                if (map[i, j] == null)
+                {
+                    continue;
+                }
+                else
+                {
+
+                    nodes[i, j] = new NODE(map[i, j], Mathf.Abs((int)start.x_location - i) + Mathf.Abs((int)start.z_location - j), Mathf.Abs((int)target.x_location - i) + Mathf.Abs((int)target.z_location - j));
+
+                }
+            }
+        }
+        NODE start_node = nodes[Mathf.Abs((int)start.x_location), Mathf.Abs((int)start.z_location)];
+        NODE target_node = nodes[Mathf.Abs((int)target.x_location), Mathf.Abs((int)target.z_location)];
+        NODE current;
+        List<NODE> Movable = new List<NODE>() { start_node };
+        List<NODE> Not_Movable = new List<NODE>();
+        while (Movable.Count > 0)
+        {
+
+            current = Movable[0];
+            for (int i = 1; i < Movable.Count; i++)
+            {
+                if (Movable[i].f <= current.f && Movable[i].h < current.h) { current = Movable[i]; }
+            }
+            Debug.Log(1);
+            Movable.Remove(current);
+            Not_Movable.Add(current);
+            if (current.block == target_node.block)
+            {
+                Debug.Log(2);
+                Path.Add(target.transform);
+                NODE TargetCurNode = target_node;
+                while (TargetCurNode != start_node)
+                {
+                    Path.Add(TargetCurNode.block_location);
+                    TargetCurNode = TargetCurNode.before_node;
+                }
+                Path.Add(start_node.block_location);
+                Debug.Log("ADDED");
+                Path.Reverse();
+
+            }
+            else
+            {
+                if (current.x - 1 > 0 && current.x < size && current.z - 1 > 0 && current.z + 1 < size)
+                {
+                    if (nodes[current.x + 1, current.z] != null)
+                    {
+                        if (!Movable.Contains(nodes[current.x + 1, current.z]))
+                        {
+                            Movable.Add(nodes[current.x + 1, current.z]);
+                            Debug.Log(3);
+                            nodes[current.x + 1, current.z].Set_before_node(nodes[current.x, current.z]);
+
+                        }
+
+                    }
+
+                    if (nodes[current.x - 1, current.z] != null)
+                    {
+                        if (!Movable.Contains(nodes[current.x - 1, current.z]))
+                        {
+                            Movable.Add(nodes[current.x - 1, current.z]);
+                            Debug.Log(4);
+                            nodes[current.x - 1, current.z].Set_before_node(nodes[current.x, current.z]);
+
+                        }
+
+
+                    }
+                    if (nodes[current.x, current.z + 1] != null)
+                    {
+                        if (!Not_Movable.Contains(nodes[current.x, current.z + 1]))
+                        {
+                            Debug.Log(5);
+                            Movable.Add(nodes[current.x, current.z + 1]);
+                            nodes[current.x, current.z + 1].Set_before_node(nodes[current.x, current.z]);
+                        }
+
+
+                    }
+                    if (nodes[current.x, current.z - 1] != null)
+                    {
+                        if (!Movable.Contains(nodes[current.x, current.z - 1]))
+                        {
+                            Debug.Log(6);
+                            Movable.Add(nodes[current.x, current.z - 1]);
+                            nodes[current.x, current.z - 1].Set_before_node(nodes[current.x, current.z]);
+                        }
+
+                    }
+                }
+
+
+            }
+        }
+        return Path;
+    }
     //4곳체크
-    public void MoveCheck(Block start,int range,int height)
+    public void RangeCheck(Block start, int range, int height)
     {
         int current = range;
-        if(current !=-1)
+        if (current != -1)
         {
             if (start.stable)
             {
@@ -168,20 +297,20 @@ public class MapManager : MonoBehaviour
                     switch (i)
                     {
                         case 1:
-                            if (start.x_location+1  < (int)Mathf.Sqrt(current_map_data.Length))
+                            if (start.x_location + 1 < (int)Mathf.Sqrt(current_map_data.Length))
                             {
                                 if (Mathf.Abs(current_map_data[(int)start.x_location + 1, (int)start.z_location].height - start.height) <= height)
                                 {
-                                    MoveCheck(current_map_data[(int)start.x_location + 1, (int)start.z_location], current - 1, height);
+                                    RangeCheck(current_map_data[(int)start.x_location + 1, (int)start.z_location], current - 1, height);
                                 }
                             }
                             break;
                         case 2:
-                            if (start.z_location+1 < (int)Mathf.Sqrt(current_map_data.Length))
+                            if (start.z_location + 1 < (int)Mathf.Sqrt(current_map_data.Length))
                             {
                                 if (Mathf.Abs(current_map_data[(int)start.x_location, (int)start.z_location + 1].height - start.height) <= height)
                                 {
-                                    MoveCheck(current_map_data[(int)start.x_location, (int)start.z_location + 1], current - 1, height);
+                                    RangeCheck(current_map_data[(int)start.x_location, (int)start.z_location + 1], current - 1, height);
                                 }
                             }
                             break;
@@ -191,7 +320,7 @@ public class MapManager : MonoBehaviour
 
                                 if (Mathf.Abs(current_map_data[(int)start.x_location - 1, (int)start.z_location].height - start.height) <= height)
                                 {
-                                    MoveCheck(current_map_data[(int)start.x_location - 1, (int)start.z_location], current - 1, height);
+                                    RangeCheck(current_map_data[(int)start.x_location - 1, (int)start.z_location], current - 1, height);
                                 }
                             }
                             break;
@@ -200,7 +329,7 @@ public class MapManager : MonoBehaviour
                             {
                                 if (Mathf.Abs(current_map_data[(int)start.x_location, (int)start.z_location - 1].height - start.height) <= height)
                                 {
-                                    MoveCheck(current_map_data[(int)start.x_location, (int)start.z_location - 1], current - 1, height);
+                                    RangeCheck(current_map_data[(int)start.x_location, (int)start.z_location - 1], current - 1, height);
                                 }
                             }
                             break;
@@ -208,21 +337,21 @@ public class MapManager : MonoBehaviour
                 }
             }
         }
-      
+
     }
     public void Clear_Map()
     {
         List<Character> instance = Gamemanager.s_instance.Get_character();
-        for(int i=0; i<instance.Count;i++)
+        for (int i = 0; i < instance.Count; i++)
         {
             instance[i].transform.SetParent(current_map_data[(int)instance[i].location.x, (int)instance[i].location.z].Block_obj.transform);
         }
         Gamemanager.s_instance.Clear_cha_list();
-        
+
     }
     private void Update()
     {
-        
+
         if (Input.GetKeyUp(KeyCode.P))
         {
             Spawn_Map(testmap, up, down);
@@ -231,13 +360,13 @@ public class MapManager : MonoBehaviour
         {
             Clear_Map();
         }
-        if(Input.GetKeyUp(KeyCode.O))
+        if (Input.GetKeyUp(KeyCode.O))
         {
-            for(int i=1; i<5;i++)
+            for (int i = 1; i < 5; i++)
             {
                 StartCoroutine(Spawn_Routine(i / 5.0f));
             }
-           
+
         }
     }
 
@@ -252,8 +381,39 @@ public class MapManager : MonoBehaviour
             Destroy(this);
         }
     }
- 
+
 
 
 }
+public class NODE
+{
+    public int h;
+    public int g;
+    public int f;
+    public int x;
+    public int z;
 
+    float height;
+    public Transform block_location;
+    public Block block;
+    public NODE before_node;
+    public NODE(Block blk, int in_g, int in_h)
+    {
+        h = in_h;
+        g = in_g;
+        f = h + g;
+        block = blk;
+        block_location = blk.Area.transform;
+        x = (int)blk.x_location;
+        z = (int)blk.z_location;
+        height = blk.height;
+    }
+    public void Set_before_node(NODE before)
+    {
+        before_node = before;
+    }
+    public int Get_f()
+    {
+        return f;
+    }
+}

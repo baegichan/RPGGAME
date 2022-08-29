@@ -25,6 +25,11 @@ public class Character : MonoBehaviour
     public Status max_ingame_status = new Status();
     public Growth growth_status = new Growth();
 
+    [Header("SKILL")]
+    public Skill default_attack;
+    public Skill cha_skill;
+    public Skill skill_1;
+    public Skill skill_2;
 
     public List<Buff_Skill> buff = new List<Buff_Skill>();
     public State current = State.DEFAULT;
@@ -198,7 +203,10 @@ public class Character : MonoBehaviour
             }
         }
     }
-
+    private void OnDestroy()
+    {
+        Destroy(cha_image);
+    }
     private void Update()
     {
     #if UNITY_EDITOR
@@ -214,11 +222,11 @@ public class Character : MonoBehaviour
 
     }
     public Transform[] test;
-    public void Move()
+    public void Move(List<Transform> path)
     {
        
 
-       // StartCoroutine(Movement(test));
+       StartCoroutine(Movement(path));
     }
     public void Move(Vector3 target)
     {
@@ -245,18 +253,18 @@ public class Character : MonoBehaviour
     {
        
     }
-    IEnumerator Movement(Transform[] path)
+    IEnumerator Movement(List<Transform> path)
     {
-        for(int i = 0; i<path.Length-1;i++)
-        {
+        for(int i = 0; i<path.Count-1;i++)
+        {/*
             if(path[i].position.y+0.5f<=path[i+1].position.y)
             {
                 Jump(path[i].position, path[i + 1].position);
             }
             else
-            {
+            {*/
                 iTween.MoveTo(gameObject, path[i + 1].position, 0.5f);
-            }
+            //}
             yield return new WaitForSeconds(0.45f);
         }
     }
@@ -312,6 +320,7 @@ public abstract class Skill
     public string skill_name;
     public int distance;
     public int range;
+    public int height;
 }
 [System.Serializable]
 public class Attack_Skill : Skill
