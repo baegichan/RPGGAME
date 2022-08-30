@@ -119,10 +119,10 @@ public class Gamemanager : MonoBehaviour
                     Block target = hit.transform.GetComponentInParent<Block>();
                     if (current_turn_character != null)
                     {
-                        
-                        List<Transform> Move =MapManager.s_instance.Get_Path( target, MapManager.s_instance.current_map_data[(int)current_turn_character.location.x, (int)current_turn_character.location.z], MapManager.s_instance.Get_Active_Area());
+                        Debug.Log("PLAYER : " + MapManager.s_instance.current_map_data[(int)current_turn_character.location.x, (int)current_turn_character.location.z].GetComponent<Block>().transform.position + " TARGET : " + target.transform.position);
+                        List<Transform> Move =MapManager.s_instance.Get_Path(MapManager.s_instance.current_map_data[(int)current_turn_character.location.x, (int)current_turn_character.location.z],target, MapManager.s_instance.Get_Active_Area());
                         current_turn_character.Move(Move);
-                        //current_turn_character.MoverangeTest2();
+                        current_turn_character.MoverangeTest2();
                         
                            // TurnEnd();                       
                     }

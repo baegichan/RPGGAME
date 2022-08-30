@@ -16,6 +16,8 @@ public class MapManager : MonoBehaviour
 
     public Block[,] current_map_data;
 
+    public List<Transform> TESTPATH;
+
     public void Spawn_Cha(GameObject default_cha, Vector3 point)
     {
 
@@ -198,7 +200,7 @@ public class MapManager : MonoBehaviour
         }
         NODE start_node = nodes[Mathf.Abs((int)start.x_location), Mathf.Abs((int)start.z_location)];
         NODE target_node = nodes[Mathf.Abs((int)target.x_location), Mathf.Abs((int)target.z_location)];
-        NODE current;
+        NODE current =null ;
         List<NODE> Movable = new List<NODE>() { start_node };
         List<NODE> Not_Movable = new List<NODE>();
         while (Movable.Count > 0)
@@ -215,25 +217,27 @@ public class MapManager : MonoBehaviour
             if (current.block == target_node.block)
             {
                 Debug.Log(2);
-                Path.Add(target.transform);
+                TESTPATH.Add(target.transform);
                 NODE TargetCurNode = target_node;
                 while (TargetCurNode != start_node)
                 {
-                    Path.Add(TargetCurNode.block_location);
+                    TESTPATH.Add(TargetCurNode.block_location);
                     TargetCurNode = TargetCurNode.before_node;
                 }
                 Path.Add(start_node.block_location);
                 Debug.Log("ADDED");
-                Path.Reverse();
+                TESTPATH.Reverse();
 
             }
             else
             {
-                if (current.x - 1 > 0 && current.x < size && current.z - 1 > 0 && current.z + 1 < size)
+                if (current.x + 1 < size )
                 {
+
+
                     if (nodes[current.x + 1, current.z] != null)
                     {
-                        if (!Movable.Contains(nodes[current.x + 1, current.z]))
+                        if (Movable.Contains(nodes[current.x + 1, current.z]) == false)
                         {
                             Movable.Add(nodes[current.x + 1, current.z]);
                             Debug.Log(3);
@@ -242,10 +246,12 @@ public class MapManager : MonoBehaviour
                         }
 
                     }
-
+                }
+                if (current.x - 1 > 0)
+                { 
                     if (nodes[current.x - 1, current.z] != null)
                     {
-                        if (!Movable.Contains(nodes[current.x - 1, current.z]))
+                        if (Movable.Contains(nodes[current.x - 1, current.z]) == false)
                         {
                             Movable.Add(nodes[current.x - 1, current.z]);
                             Debug.Log(4);
@@ -255,20 +261,25 @@ public class MapManager : MonoBehaviour
 
 
                     }
+            }
+                if (current.z + 1 < size)
+                { 
                     if (nodes[current.x, current.z + 1] != null)
                     {
-                        if (!Not_Movable.Contains(nodes[current.x, current.z + 1]))
+                        if (Movable.Contains(nodes[current.x, current.z + 1]) == false)
                         {
                             Debug.Log(5);
                             Movable.Add(nodes[current.x, current.z + 1]);
                             nodes[current.x, current.z + 1].Set_before_node(nodes[current.x, current.z]);
                         }
-
+                    }
 
                     }
+                if (current.z - 1 > 0 )
+                {
                     if (nodes[current.x, current.z - 1] != null)
                     {
-                        if (!Movable.Contains(nodes[current.x, current.z - 1]))
+                        if (Movable.Contains(nodes[current.x, current.z - 1]) == false)
                         {
                             Debug.Log(6);
                             Movable.Add(nodes[current.x, current.z - 1]);
@@ -277,9 +288,10 @@ public class MapManager : MonoBehaviour
 
                     }
                 }
+                }
 
 
-            }
+            
         }
         return Path;
     }
