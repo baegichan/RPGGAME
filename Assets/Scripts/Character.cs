@@ -224,13 +224,13 @@ public class Character : MonoBehaviour
     public Transform[] test;
     public void Move(List<Transform> path)
     {
-       
-
-       StartCoroutine(Movement(path));
+        location = path[path.Count - 1].position;
+        StartCoroutine(Movement(path));
+      
     }
     public void Move(Vector3 target)
     {
-
+        location = target;
     }
 
 
@@ -265,7 +265,7 @@ public class Character : MonoBehaviour
             {*/
                 iTween.MoveTo(gameObject, path[i + 1].position, 0.5f);
             //}
-            yield return new WaitForSeconds(0.45f);
+            yield return new WaitForSeconds(0.5f);
         }
     }
     //이동시 점프 애니메이션 용 

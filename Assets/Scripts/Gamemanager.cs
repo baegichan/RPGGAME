@@ -60,11 +60,12 @@ public class Gamemanager : MonoBehaviour
     //
     //or SPEED 가 100이 될때 설정  S
     //0.2초마다 SPEED/10 만큼 턴진행도 오름
-    Character current_turn_character;
+    public Character current_turn_character;
     public void TurnEnd()
     {
         current_turn_character.turn_speed -= 100;
         max_speed_character.Remove(current_turn_character);
+        MapManager.s_instance.AreaOff();
         current_turn_character = null;
         if(max_speed_character.Count==0)
         {
@@ -96,6 +97,7 @@ public class Gamemanager : MonoBehaviour
                 {
                     current_turn_character = max_speed_character[0];
                     current_turn_character.MoverangeTest1();
+
              
                 }
             }
@@ -117,13 +119,15 @@ public class Gamemanager : MonoBehaviour
                 if(hit.transform.tag=="Area")
                 {
                     Block target = hit.transform.GetComponentInParent<Block>();
+                    
                     if (current_turn_character != null)
                     {
                         Debug.Log("PLAYER : " + MapManager.s_instance.current_map_data[(int)current_turn_character.location.x, (int)current_turn_character.location.z].GetComponent<Block>().transform.position + " TARGET : " + target.transform.position);
                         List<Transform> Move =MapManager.s_instance.Get_Path(MapManager.s_instance.current_map_data[(int)current_turn_character.location.x, (int)current_turn_character.location.z],target, MapManager.s_instance.Get_Active_Area());
                         current_turn_character.Move(Move);
                         current_turn_character.MoverangeTest2();
-                        
+                        TurnEnd();
+
                            // TurnEnd();                       
                     }
                 }

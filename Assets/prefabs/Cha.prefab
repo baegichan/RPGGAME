@@ -155,7 +155,7 @@ MonoBehaviour:
     MAG: 0
     RES: 0
     SPEED: 50
-    MOVE: 2
+    MOVE: 5
     JUMP: 1
     fire_res: 0
     water_res: 0
