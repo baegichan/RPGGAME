@@ -370,7 +370,7 @@ public class MapManager : MonoBehaviour
     }
     private void Update()
     {
-
+#if UNITY_EDITOR
         if (Input.GetKeyUp(KeyCode.P))
         {
             Spawn_Map(testmap, up, down);
@@ -387,6 +387,7 @@ public class MapManager : MonoBehaviour
             }
 
         }
+#endif
     }
 
     private void Awake()
