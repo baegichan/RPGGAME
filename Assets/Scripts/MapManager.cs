@@ -16,13 +16,21 @@ public class MapManager : MonoBehaviour
 
     public Block[,] current_map_data;
 
-   
+    public bool[,] obstacle_map;
 
+
+
+
+    public void Obstacle(int x, int z, bool value)
+    {
+        obstacle_map[x, z] = value;
+    }
     public void Spawn_Cha(GameObject default_cha, Vector3 point)
     {
 
         GameObject ins = Instantiate(default_cha, new Vector3(point.x, current_map_data[(int)point.x, (int)point.z].Block_obj.transform.position.y + 0.5f, point.z), Quaternion.identity);
         ins.GetComponent<Character>().location = point;
+        Obstacle((int)point.x, (int)point.z, true);
     }
     IEnumerator Spawn_Routine(float time)
     {
@@ -33,6 +41,7 @@ public class MapManager : MonoBehaviour
     {
         current_map_data = null;
         current_map_data = new Block[mapdata.Map_data.Length, mapdata.Map_data.Length];
+        obstacle_map = new bool[mapdata.Map_data.Length, mapdata.Map_data.Length];
         // Instantiate();
         for (int i = 0; i < mapdata.Map_data.Length; i++)
         {
@@ -45,6 +54,10 @@ public class MapManager : MonoBehaviour
                 if (mapdata.Map_data[i].block[j].not_stable == true)
                 {
                     Spawned.GetComponent<Block>().Set_stable(false);
+                }
+                if (mapdata.Map_data[i].block[j].Obstacle == null)
+                {
+                    obstacle_map[i, j] = false;
                 }
                 #region 높이차 스폰
                 /*
@@ -111,7 +124,7 @@ public class MapManager : MonoBehaviour
             //  blocks[(int)(cha.location.x + x), (int)(cha.location.z + z)] = current_map_data[(int)(cha.location.x + x), (int)(cha.location.z + z)];
             // blocks.Add(current_map_data[(int)(cha.location.x + x), (int)(cha.location.z + z)]);
             //current_map_data[(int)(cha.location.x + x), (int)(cha.location.z + z)].Area.SetActive(true);
-            RangeCheck(current_map_data[(int)(cha.location.x), (int)(cha.location.z)], cha.max_ingame_status.MOVE, cha.max_ingame_status.JUMP);
+            MoveRangeCheck(current_map_data[(int)(cha.location.x), (int)(cha.location.z)], cha.max_ingame_status.MOVE, cha.max_ingame_status.JUMP);
         }
         else
         {
@@ -191,7 +204,6 @@ public class MapManager : MonoBehaviour
         int size = (int)Get_Size();
         NODE[,] nodes = new NODE[size, size];
         List<Transform> Path = new List<Transform>();
-        
         for (int i = 0; i < size; i++)
         {
             for (int j = 0; j < size; j++)
@@ -202,15 +214,16 @@ public class MapManager : MonoBehaviour
                 }
                 else
                 {
-
-                    nodes[i, j] = new NODE(map[i, j], Mathf.Abs((int)start.x_location - i) + Mathf.Abs((int)start.z_location - j), Mathf.Abs((int)target.x_location - i) + Mathf.Abs((int)target.z_location - j));
-
+                    if (obstacle_map[i, j] == false || ((int)start.x_location == i && (int)start.z_location == j))
+                    {
+                        nodes[i, j] = new NODE(map[i, j], Mathf.Abs((int)start.x_location - i) + Mathf.Abs((int)start.z_location - j), Mathf.Abs((int)target.x_location - i) + Mathf.Abs((int)target.z_location - j));
+                    }
                 }
             }
         }
         NODE start_node = nodes[Mathf.Abs((int)start.x_location), Mathf.Abs((int)start.z_location)];
         NODE target_node = nodes[Mathf.Abs((int)target.x_location), Mathf.Abs((int)target.z_location)];
-        NODE current =null ;
+        NODE current = null;
         List<NODE> Movable = new List<NODE>() { start_node };
         List<NODE> Not_Movable = new List<NODE>();
         while (Movable.Count > 0)
@@ -229,7 +242,6 @@ public class MapManager : MonoBehaviour
                 NODE TargetCurNode = target_node;
                 while (TargetCurNode != start_node)
                 {
-                       Debug.Log("Target position = " + TargetCurNode.block_location.position);
                     Path.Add(TargetCurNode.block_location);
                     TargetCurNode = TargetCurNode.before_node;
                 }
@@ -240,14 +252,13 @@ public class MapManager : MonoBehaviour
             }
             else
             {
-                if (current.x + 1 < size )
+                if (current.x + 1 < size)
                 {
                     if (nodes[current.x + 1, current.z] != null)
                     {
                         if (Not_Movable.Contains(nodes[current.x + 1, current.z]) == false)
                         {
                             Movable.Add(nodes[current.x + 1, current.z]);
-                            Debug.Log(3);
                             nodes[current.x + 1, current.z].Set_before_node(current);
 
                         }
@@ -255,55 +266,49 @@ public class MapManager : MonoBehaviour
                     }
                 }
                 if (current.x - 1 > 0)
-                { 
+                {
                     if (nodes[current.x - 1, current.z] != null)
                     {
                         if (Not_Movable.Contains(nodes[current.x - 1, current.z]) == false)
                         {
                             Movable.Add(nodes[current.x - 1, current.z]);
-                            Debug.Log(4);
                             nodes[current.x - 1, current.z].Set_before_node(current);
 
                         }
 
 
                     }
-            }
+                }
                 if (current.z + 1 < size)
-                { 
+                {
                     if (nodes[current.x, current.z + 1] != null)
                     {
                         if (Not_Movable.Contains(nodes[current.x, current.z + 1]) == false)
                         {
-                            Debug.Log(5);
                             Movable.Add(nodes[current.x, current.z + 1]);
                             nodes[current.x, current.z + 1].Set_before_node(current);
                         }
                     }
 
-                    }
-                if (current.z - 1 > 0 )
+                }
+                if (current.z - 1 > 0)
                 {
                     if (nodes[current.x, current.z - 1] != null)
                     {
                         if (Not_Movable.Contains(nodes[current.x, current.z - 1]) == false)
                         {
-                            Debug.Log(6);
                             Movable.Add(nodes[current.x, current.z - 1]);
                             nodes[current.x, current.z - 1].Set_before_node(current);
                         }
 
                     }
                 }
-                }
-
-
-            
+            }
         }
         return Path;
     }
     //4곳체크
-    public void RangeCheck(Block start, int range, int height)
+    public void MoveRangeCheck(Block start, int range, int height)
     {
         int current = range;
         if (current != -1)
@@ -318,9 +323,136 @@ public class MapManager : MonoBehaviour
                         case 1:
                             if (start.x_location + 1 < (int)Mathf.Sqrt(current_map_data.Length))
                             {
+                                if (Mathf.Abs(current_map_data[(int)start.x_location + 1, (int)start.z_location].height - start.height) <= height && obstacle_map[(int)start.x_location + 1, (int)start.z_location] == false)
+                                {
+                                    MoveRangeCheck(current_map_data[(int)start.x_location + 1, (int)start.z_location], current - 1, height);
+                                }
+                            }
+                            break;
+                        case 2:
+                            if (start.z_location + 1 < (int)Mathf.Sqrt(current_map_data.Length))
+                            {
+                                if (Mathf.Abs(current_map_data[(int)start.x_location, (int)start.z_location + 1].height - start.height) <= height && obstacle_map[(int)start.x_location, (int)start.z_location + 1] == false)
+                                {
+                                    MoveRangeCheck(current_map_data[(int)start.x_location, (int)start.z_location + 1], current - 1, height);
+                                }
+                            }
+                            break;
+                        case 3:
+                            if (start.x_location - 1 >= 0)
+                            {
+
+                                if (Mathf.Abs(current_map_data[(int)start.x_location - 1, (int)start.z_location].height - start.height) <= height && obstacle_map[(int)start.x_location - 1, (int)start.z_location] == false)
+                                {
+                                    MoveRangeCheck(current_map_data[(int)start.x_location - 1, (int)start.z_location], current - 1, height);
+                                }
+                            }
+                            break;
+                        case 4:
+                            if (start.z_location - 1 >= 0)
+                            {
+                                if (Mathf.Abs(current_map_data[(int)start.x_location, (int)start.z_location - 1].height - start.height) <= height && obstacle_map[(int)start.x_location, (int)start.z_location - 1] == false)
+                                {
+                                    MoveRangeCheck(current_map_data[(int)start.x_location, (int)start.z_location - 1], current - 1, height);
+                                }
+                            }
+                            break;
+                    }
+                }
+            }
+        }
+
+    }
+    public void AttackRangeCheck_Straight(Block start, int range, int height,bool on)
+    {
+        int current = range;
+        if (current != -1)
+        {
+            if (start.stable)
+            {
+             
+                bool x_minus=true, x_plus=true, z_minus=true, z_plus = true;
+                for (int i = 1; i < range+1; i++)
+                {
+
+
+                    if (start.x_location + i < (int)Mathf.Sqrt(current_map_data.Length)&& x_plus)
+                    {
+                        if (Mathf.Abs(current_map_data[(int)start.x_location + i, (int)start.z_location].height - start.height) <= height)
+                        {
+                            current_map_data[(int)start.x_location + i, (int)start.z_location].Area.SetActive(on);
+                        }
+                        else
+                        {
+                            x_plus = false;
+                        }
+                    }
+
+                    if (start.z_location + i < (int)Mathf.Sqrt(current_map_data.Length)&& z_plus)
+                    {
+                        if (Mathf.Abs(current_map_data[(int)start.x_location, (int)start.z_location + i].height - start.height) <= height)
+                        {
+                            current_map_data[(int)start.x_location , (int)start.z_location+i].Area.SetActive(on);
+                        }
+                        else
+                        {
+                            z_plus = false;
+                        }
+                    }
+
+                    if (start.x_location - i >= 0&&x_minus)
+                    {
+
+                        if (Mathf.Abs(current_map_data[(int)start.x_location - i, (int)start.z_location].height - start.height) <= height)
+                        {
+                            current_map_data[(int)start.x_location - i, (int)start.z_location].Area.SetActive(on);
+                        }
+                        else
+                        {
+                            x_minus = false;
+                        }
+                    }
+
+                    if (start.z_location - i >= 0 && z_minus)
+                    {
+                        if (Mathf.Abs(current_map_data[(int)start.x_location, (int)start.z_location - i].height - start.height) <= height)
+                        {
+                            current_map_data[(int)start.x_location , (int)start.z_location - i].Area.SetActive(on);
+                        }
+                        else
+                        {
+                            z_minus = false;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    public void AttackRangeCheck_Circle(Block start, int range, int height ,bool on)
+    {
+        int current = range;
+        if (current != -1)
+        {
+            if (start.stable)
+            {
+                if(on)
+                {
+                    start.Area.SetActive(true);
+                }
+                else
+                {
+                    start.Area.SetActive(false);
+                }
+                for (int i = 1; i <= 4; i++)
+                {
+                    switch (i)
+                    {
+                        case 1:
+                            if (start.x_location + 1 < (int)Mathf.Sqrt(current_map_data.Length))
+                            {
                                 if (Mathf.Abs(current_map_data[(int)start.x_location + 1, (int)start.z_location].height - start.height) <= height)
                                 {
-                                    RangeCheck(current_map_data[(int)start.x_location + 1, (int)start.z_location], current - 1, height);
+                                    AttackRangeCheck_Circle(current_map_data[(int)start.x_location + 1, (int)start.z_location], current - 1, height, on);
                                 }
                             }
                             break;
@@ -329,7 +461,7 @@ public class MapManager : MonoBehaviour
                             {
                                 if (Mathf.Abs(current_map_data[(int)start.x_location, (int)start.z_location + 1].height - start.height) <= height)
                                 {
-                                    RangeCheck(current_map_data[(int)start.x_location, (int)start.z_location + 1], current - 1, height);
+                                    AttackRangeCheck_Circle(current_map_data[(int)start.x_location, (int)start.z_location + 1], current - 1, height, on);
                                 }
                             }
                             break;
@@ -339,7 +471,7 @@ public class MapManager : MonoBehaviour
 
                                 if (Mathf.Abs(current_map_data[(int)start.x_location - 1, (int)start.z_location].height - start.height) <= height)
                                 {
-                                    RangeCheck(current_map_data[(int)start.x_location - 1, (int)start.z_location], current - 1, height);
+                                    AttackRangeCheck_Circle(current_map_data[(int)start.x_location - 1, (int)start.z_location], current - 1, height, on);
                                 }
                             }
                             break;
@@ -348,7 +480,7 @@ public class MapManager : MonoBehaviour
                             {
                                 if (Mathf.Abs(current_map_data[(int)start.x_location, (int)start.z_location - 1].height - start.height) <= height)
                                 {
-                                    RangeCheck(current_map_data[(int)start.x_location, (int)start.z_location - 1], current - 1, height);
+                                    AttackRangeCheck_Circle(current_map_data[(int)start.x_location, (int)start.z_location - 1], current - 1, height, on);
                                 }
                             }
                             break;

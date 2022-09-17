@@ -22,6 +22,7 @@ public class Block_Data
 {
     public Block.BLOCK_TYPE type;
     public float height;
+    public GameObject Obstacle;
     public bool not_stable = false;
 }
 [System.Serializable]

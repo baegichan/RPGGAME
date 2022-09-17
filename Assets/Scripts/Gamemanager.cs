@@ -16,12 +16,13 @@ public class Gamemanager : MonoBehaviour
     public Transform root_campos;
     public List<Transform> cam_poses;
     public Transform current_campos;
-    List<List<GameObject>> map = new List<List<GameObject>>();
+    //List<List<GameObject>> map = new List<List<GameObject>>();
     public List<Character> in_game_character = new List<Character>();
     public List<Character> max_speed_character = new List<Character>();
     public bool Turn_Play = false;
     public bool Game_Play = false;
     public Turn_Type Turn_Type = Turn_Type.NONE;
+    public GameObject[] skill_buttons;
     public GameObject Spawnchaimage()
     {
         return Instantiate(turn_ui, in_game_canvas.transform);
@@ -65,14 +66,14 @@ public class Gamemanager : MonoBehaviour
     public Character current_turn_character;
     public void TurnEnd()
     {
+        StartCoroutine(Delay_Turn(Turn_Type.NONE, 0));
         current_turn_character.turn_speed -= 100;
         max_speed_character.Remove(current_turn_character);
-        
         current_turn_character = null;
-        if(max_speed_character.Count==0)
+        MapManager.s_instance.AreaOff();
+        if (max_speed_character.Count==0)
         {
             Turn_Play = true;
-            Turn_Type = Turn_Type.NONE;
         }
     }
     public int IndexReturner()
@@ -92,8 +93,73 @@ public class Gamemanager : MonoBehaviour
         }
         return -1;
     }
+    Skill currnet_skill;
+    public void Set_Skill_Ui()
+    {
+        
+    }
+    public void Click_Skill_UI(int num)
+    {
+        if(Turn_Type==Turn_Type.ATTACK)
+        {
+            MapManager.s_instance.AreaOff();
+            ChangeCurrentTarget(false);
+            switch (num)
+            {
+                case 0:
+                    if(current_turn_character.default_attack.attack_shape == attack_shape.STRAIGHT)
+                    {
+                        MapManager.s_instance.AttackRangeCheck_Straight(MapManager.s_instance.current_map_data[(int)current_turn_character.location.x, (int)current_turn_character.location.z], current_turn_character.default_attack.distance, current_turn_character.default_attack.height,true);
+                        MapManager.s_instance.AttackRangeCheck_Straight(MapManager.s_instance.current_map_data[(int)current_turn_character.location.x, (int)current_turn_character.location.z], current_turn_character.default_attack.m_distance, current_turn_character.default_attack.height, false);
+                    }
+                    else
+                    {
+                        MapManager.s_instance.AttackRangeCheck_Circle(MapManager.s_instance.current_map_data[(int)current_turn_character.location.x, (int)current_turn_character.location.z], current_turn_character.default_attack.distance, current_turn_character.default_attack.height,true);
+                        MapManager.s_instance.AttackRangeCheck_Circle(MapManager.s_instance.current_map_data[(int)current_turn_character.location.x, (int)current_turn_character.location.z], current_turn_character.default_attack.m_distance, current_turn_character.default_attack.height, false);
+                    }
+                    break;
+                case 1:
+                    if (current_turn_character.cha_skill.attack_shape == attack_shape.STRAIGHT)
+                    {
+                        MapManager.s_instance.AttackRangeCheck_Straight(MapManager.s_instance.current_map_data[(int)current_turn_character.location.x, (int)current_turn_character.location.z], current_turn_character.cha_skill.distance, current_turn_character.cha_skill.height,true);
+                        MapManager.s_instance.AttackRangeCheck_Straight(MapManager.s_instance.current_map_data[(int)current_turn_character.location.x, (int)current_turn_character.location.z], current_turn_character.cha_skill.m_distance, current_turn_character.cha_skill.height, false);
+                    }
+                    else
+                    {
+                        MapManager.s_instance.AttackRangeCheck_Circle(MapManager.s_instance.current_map_data[(int)current_turn_character.location.x, (int)current_turn_character.location.z], current_turn_character.cha_skill.distance, current_turn_character.cha_skill.height,true);
+                        MapManager.s_instance.AttackRangeCheck_Circle(MapManager.s_instance.current_map_data[(int)current_turn_character.location.x, (int)current_turn_character.location.z], current_turn_character.cha_skill.m_distance, current_turn_character.cha_skill.height, false);
+                    }
+                    break;
+                case 2:
+                    if (current_turn_character.skill_1.attack_shape == attack_shape.STRAIGHT)
+                    {
+                        MapManager.s_instance.AttackRangeCheck_Straight(MapManager.s_instance.current_map_data[(int)current_turn_character.location.x, (int)current_turn_character.location.z], current_turn_character.skill_1.distance, current_turn_character.skill_1.height,true);
+                        MapManager.s_instance.AttackRangeCheck_Straight(MapManager.s_instance.current_map_data[(int)current_turn_character.location.x, (int)current_turn_character.location.z], current_turn_character.skill_1.m_distance, current_turn_character.skill_1.height, false);
+                    }
+                    else
+                    {
+                        MapManager.s_instance.AttackRangeCheck_Circle(MapManager.s_instance.current_map_data[(int)current_turn_character.location.x, (int)current_turn_character.location.z], current_turn_character.skill_1.distance, current_turn_character.skill_1.height,true);
+                        MapManager.s_instance.AttackRangeCheck_Circle(MapManager.s_instance.current_map_data[(int)current_turn_character.location.x, (int)current_turn_character.location.z], current_turn_character.skill_1.m_distance, current_turn_character.skill_1.height, false);
 
+                    }
+                    break;
+                case 3:
+                    if (current_turn_character.skill_2.attack_shape == attack_shape.STRAIGHT)
+                    {
+                        MapManager.s_instance.AttackRangeCheck_Straight(MapManager.s_instance.current_map_data[(int)current_turn_character.location.x, (int)current_turn_character.location.z], current_turn_character.skill_2.distance, current_turn_character.skill_2.height,true);
+                        MapManager.s_instance.AttackRangeCheck_Straight(MapManager.s_instance.current_map_data[(int)current_turn_character.location.x, (int)current_turn_character.location.z], current_turn_character.skill_2.m_distance, current_turn_character.skill_2.height, false);
 
+                    }
+                    else
+                    {
+                        MapManager.s_instance.AttackRangeCheck_Circle(MapManager.s_instance.current_map_data[(int)current_turn_character.location.x, (int)current_turn_character.location.z], current_turn_character.skill_2.distance, current_turn_character.skill_2.height,true);
+                        MapManager.s_instance.AttackRangeCheck_Circle(MapManager.s_instance.current_map_data[(int)current_turn_character.location.x, (int)current_turn_character.location.z], current_turn_character.skill_2.m_distance, current_turn_character.skill_2.height, false);
+
+                    }
+                    break;
+            }
+        }     
+    }
     private void Update()
     {
         if (Game_Play)
@@ -190,8 +256,12 @@ public class Gamemanager : MonoBehaviour
                                 if (current_turn_character != null)
                                 {
                                     List<Transform> Move = MapManager.s_instance.Get_Path(MapManager.s_instance.current_map_data[(int)current_turn_character.location.x, (int)current_turn_character.location.z], target, MapManager.s_instance.Get_Active_Area());
+                                    MapManager.s_instance.Obstacle((int)current_turn_character.location.x, (int)current_turn_character.location.z, false);
                                     current_turn_character.Move(Move);
+                                    MapManager.s_instance.Obstacle((int)target.x_location, (int)target.z_location, true);
+                                  
                                     MapManager.s_instance.AreaOff();
+                                    
                                     StartCoroutine(Delay_Turn(Turn_Type.ATTACK, (Move.Count-1)*0.5f));
                                     // TurnEnd();                       
                                 }
@@ -200,15 +270,16 @@ public class Gamemanager : MonoBehaviour
                     }
                     break;
                 case Turn_Type.ATTACK:
-#if UNITY_EDITOR
-                    ChangeCurrentTarget(false);
-                    MapManager.s_instance.RangeCheck(MapManager.s_instance.current_map_data[(int)current_turn_character.location.x, (int)current_turn_character.location.z], 2, 1);
-                    if(Input.GetKeyDown(KeyCode.I))
+
+                    //ChangeCurrentTarget(false);
+                   // MapManager.s_instance.AttackRangeCheck(MapManager.s_instance.current_map_data[(int)current_turn_character.location.x, (int)current_turn_character.location.z], 2, 1);
+                    if(Input.GetKeyUp(KeyCode.I))
                     {
                         StartCoroutine(Delay_Turn(Turn_Type.NONE,0));
+                        MapManager.s_instance.AreaOff();
                         TurnEnd();
                     }
-                    #endif
+
                     break;
                
             }

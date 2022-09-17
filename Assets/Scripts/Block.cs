@@ -12,6 +12,8 @@ public class Block : MonoBehaviour
     public float height;
     public float x_location;
     public float z_location;
+    
+    
 
     public void set_location(float x, float y, float z)
     {

@@ -26,10 +26,10 @@ public class Character : MonoBehaviour
     public Growth growth_status = new Growth();
 
     [Header("SKILL")]
-    public Skill default_attack;
-    public Skill cha_skill;
-    public Skill skill_1;
-    public Skill skill_2;
+    public Attack_Skill default_attack;
+    public Attack_Skill cha_skill;
+    public Attack_Skill skill_1;
+    public Attack_Skill skill_2;
 
     public List<Buff_Skill> buff = new List<Buff_Skill>();
     public State current = State.DEFAULT;
@@ -53,6 +53,10 @@ public class Character : MonoBehaviour
             max_ingame_status.light_res += target.equipstatus.light_res;
         }
        
+    }
+    public void Skill_Setting()
+    {
+
     }
     public void Cha_Init()
     {
@@ -319,6 +323,7 @@ public abstract class Skill
     public Image skill_img;
     public string skill_name;
     public int distance;
+    public int m_distance = 0;
     public int range;
     public int height;
 }
@@ -327,6 +332,7 @@ public class Attack_Skill : Skill
 {
     public int dmg;
     public attack_type attack_type;
+    public attack_shape attack_shape;
     public attribute attack_attribute;
 }
 [System.Serializable]
@@ -344,6 +350,11 @@ public enum attack_type
 {
     MELEE,
     MAGIC
+}
+public enum attack_shape
+{
+    CIRCLE,
+    STRAIGHT
 }
 
 public enum attribute

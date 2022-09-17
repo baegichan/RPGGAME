@@ -399,6 +399,50 @@ MonoBehaviour:
     burns_res: 0
     frostbite_res: 0
     shock_res: 0
+  default_attack:
+    skill_img: {fileID: 0}
+    skill_name: 
+    distance: 1
+    m_distance: 0
+    range: 0
+    height: 1
+    dmg: 0
+    attack_type: 0
+    attack_shape: 0
+    attack_attribute: 0
+  cha_skill:
+    skill_img: {fileID: 0}
+    skill_name: 
+    distance: 5
+    m_distance: 2
+    range: 0
+    height: 3
+    dmg: 0
+    attack_type: 0
+    attack_shape: 1
+    attack_attribute: 0
+  skill_1:
+    skill_img: {fileID: 0}
+    skill_name: 
+    distance: 3
+    m_distance: 1
+    range: 0
+    height: 1
+    dmg: 0
+    attack_type: 0
+    attack_shape: 0
+    attack_attribute: 0
+  skill_2:
+    skill_img: {fileID: 0}
+    skill_name: 
+    distance: 4
+    m_distance: 2
+    range: 0
+    height: 1
+    dmg: 0
+    attack_type: 0
+    attack_shape: 0
+    attack_attribute: 0
   buff: []
   current: 0
   test: []
