@@ -32,10 +32,25 @@ public class MapManager : MonoBehaviour
         ins.GetComponent<Character>().location = point;
         Obstacle((int)point.x, (int)point.z, true);
     }
-    IEnumerator Spawn_Routine(float time)
+    public void Spawn_Monster(GameObject monster , Vector3 point)
+    {
+        GameObject ins = Instantiate(monster, new Vector3(point.x, current_map_data[(int)point.x, (int)point.z].Block_obj.transform.position.y + 0.5f, point.z), Quaternion.identity);
+        ins.GetComponent<Character>().location = point;
+        Obstacle((int)point.x, (int)point.z, true);
+    }
+    IEnumerator Player_Spawn_Routine(float time)
     {
         yield return new WaitForSeconds(time);
         Spawn_Cha(testCha, new Vector3(UnityEngine.Random.Range(0, 10), 0, UnityEngine.Random.Range(0, 10)));
+        
+    }
+    IEnumerator Monster_Spawn_Routine(float time , Mapdata map)
+    {
+        for (int i = 0; i < map.mainquest.Monster.Count; i++)
+        {
+            yield return new WaitForSeconds(time);
+            Spawn_Cha(map.mainquest.Monster[i], new Vector3(UnityEngine.Random.Range(0, 10), 0, UnityEngine.Random.Range(0, 10)));
+        }
     }
     public void Spawn_Map(Mapdata mapdata, Transform upblock, Transform underblock)
     {
@@ -370,7 +385,7 @@ public class MapManager : MonoBehaviour
         {
             if (start.stable)
             {
-             
+                start.Area.SetActive(on);
                 bool x_minus=true, x_plus=true, z_minus=true, z_plus = true;
                 for (int i = 1; i < range+1; i++)
                 {
@@ -515,9 +530,9 @@ public class MapManager : MonoBehaviour
         {
             for (int i = 1; i < 5; i++)
             {
-                StartCoroutine(Spawn_Routine(i / 5.0f));
+                StartCoroutine(Player_Spawn_Routine(i / 5.0f));
             }
-
+            StartCoroutine(Monster_Spawn_Routine(0,testmap));
         }
 #endif
     }

@@ -66,14 +66,77 @@ public class Gamemanager : MonoBehaviour
     public Character current_turn_character;
     public void TurnEnd()
     {
-        StartCoroutine(Delay_Turn(Turn_Type.NONE, 0));
-        current_turn_character.turn_speed -= 100;
-        max_speed_character.Remove(current_turn_character);
-        current_turn_character = null;
-        MapManager.s_instance.AreaOff();
-        if (max_speed_character.Count==0)
+        switch(Turn_Type)
         {
-            Turn_Play = true;
+            case Turn_Type.NONE:
+                Turn(Turn_Type.MOVE);
+                break;
+            case Turn_Type.MOVE:
+                Turn(Turn_Type.ATTACK);
+                /*
+                    StartCoroutine(Delay_Turn(Turn_Type.ATTACK, 0));
+                    foreach (GameObject obj in skill_buttons)
+                    {
+                        obj.SetActive(true);
+                    }
+                    MapManager.s_instance.AreaOff();*/
+                break;
+            case Turn_Type.ATTACK:
+                 Turn(Turn_Type.NONE);
+            /*
+                foreach (GameObject obj in skill_buttons)
+                {
+                    obj.SetActive(false);
+                }
+                StartCoroutine(Delay_Turn(Turn_Type.NONE, 0));
+                current_turn_character.turn_speed -= 100;
+                max_speed_character.Remove(current_turn_character);
+                current_turn_character = null;
+                MapManager.s_instance.AreaOff();
+                if (max_speed_character.Count == 0)
+                {
+                    Turn_Play = true;
+                }*/
+                break;
+        }
+    }
+    public void Turn(Turn_Type targetturn)
+    {
+        switch (targetturn)
+        {
+            case Turn_Type.NONE:
+                StartCoroutine(Delay_Turn(Turn_Type.NONE, 0));
+                current_turn_character.turn_speed -= 100;
+                max_speed_character.Remove(current_turn_character);
+                current_turn_character = null;
+                MapManager.s_instance.AreaOff();
+                if (max_speed_character.Count == 0)
+                {
+                    Turn_Play = true;
+                }
+                foreach (GameObject obj in skill_buttons)
+                {
+                    obj.SetActive(false);
+                }
+                break;
+            case Turn_Type.MOVE:
+                StartCoroutine(Delay_Turn(Turn_Type.MOVE, 0));
+                foreach (GameObject obj in skill_buttons)
+                {
+                    obj.SetActive(false);
+                }
+          
+                break;
+            case Turn_Type.ATTACK:
+                MapManager.s_instance.AreaOff();
+                StartCoroutine(Delay_Turn(Turn_Type.ATTACK, 0));
+                foreach (GameObject obj in skill_buttons)
+                {
+                    obj.SetActive(true);
+                }
+                
+       
+                break;
         }
     }
     public int IndexReturner()
@@ -233,8 +296,18 @@ public class Gamemanager : MonoBehaviour
                         if (current_turn_character == null && max_speed_character.Count != 0)
                         {
                             current_turn_character = max_speed_character[0];
-                            current_turn_character.MoverangeTest1();
-                            StartCoroutine(Delay_Turn(Turn_Type.MOVE, 0));
+                            
+                           
+                            if(current_turn_character.current== State.DEFAULT)
+                            {
+                                StartCoroutine(Delay_Turn(Turn_Type.MOVE, 0));
+                                current_turn_character.MoverangeTest1();
+                            }
+                            else
+                            {
+                                
+                                TurnEnd();
+                            }
                         }
                     }
                     break;

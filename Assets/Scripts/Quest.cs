@@ -7,7 +7,9 @@ using UnityEngine;
 public class Quest : ScriptableObject
 {
     public Quest_type quest_type;
-    public List<Character> Monster = new List<Character>();
+    public string quset_name;
+    public string infomation;
+    public List<GameObject> Monster = new List<GameObject>();
     public bool random_spawn;
     public int monster_num;
     

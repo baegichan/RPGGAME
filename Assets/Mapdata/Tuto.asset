@@ -16,315 +16,416 @@ MonoBehaviour:
   - block:
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
   - block:
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
   - block:
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
   - block:
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
   - block:
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
   - block:
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
   - block:
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
   - block:
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
   - block:
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
   - block:
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
     - type: 4
       height: 0
-      stable: 1
+      Obstacle: {fileID: 0}
+      not_stable: 0
   Map_material:
   - material: {fileID: 2100000, guid: 26adaaf8b3b65f44caa24d4a39ffecfa, type: 2}
     type: 4
   - material: {fileID: 2100000, guid: 34be8bc93d2e21c469544f8cce1080ba, type: 2}
     type: 2
+  mainquest: {fileID: 11400000, guid: 2b002cbf2a0ead948ba6ff486271272d, type: 2}

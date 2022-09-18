@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: Quest
   m_EditorClassIdentifier: 
   quest_type: 1
+  quset_name: "\uD14C\uC2A4\uD2B8\uD018\uC2A4\uD2B8"
+  infomation: "\uD14C\uC2A4\uD2B8 \uD018\uC2A4\uD2B8\uC784"
   Monster:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8370117220510059656, guid: 9782b3f4a92ade640908501bab6d41a6, type: 3}
+  - {fileID: 8370117220510059656, guid: 9782b3f4a92ade640908501bab6d41a6, type: 3}
+  - {fileID: 8370117220510059656, guid: 9782b3f4a92ade640908501bab6d41a6, type: 3}
   random_spawn: 0
   monster_num: 0
