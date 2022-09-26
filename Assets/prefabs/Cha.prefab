@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8370117219043544556}
   - component: {fileID: 8370117219043544557}
   - component: {fileID: 8370117219043544558}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 8370117220510059661}
   - component: {fileID: 8370117220510059662}
   - component: {fileID: 8370117220510059663}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cha
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -148,9 +148,9 @@ MonoBehaviour:
   cha_name: 
   cha_level: 1
   cha_status:
-    HP: 0
+    HP: 100
     MP: 0
-    ATK: 0
+    ATK: 1
     DEF: 0
     MAG: 0
     RES: 0
@@ -406,7 +406,7 @@ MonoBehaviour:
     m_distance: 0
     range: 0
     height: 1
-    dmg: 0
+    dmg: 20
     attack_type: 0
     attack_shape: 0
     attack_attribute: 0
@@ -417,7 +417,7 @@ MonoBehaviour:
     m_distance: 2
     range: 0
     height: 3
-    dmg: 0
+    dmg: 100
     attack_type: 0
     attack_shape: 1
     attack_attribute: 0
@@ -428,7 +428,7 @@ MonoBehaviour:
     m_distance: 1
     range: 0
     height: 1
-    dmg: 0
+    dmg: 50
     attack_type: 0
     attack_shape: 0
     attack_attribute: 0
@@ -439,7 +439,7 @@ MonoBehaviour:
     m_distance: 2
     range: 0
     height: 1
-    dmg: 0
+    dmg: 40
     attack_type: 0
     attack_shape: 0
     attack_attribute: 0
@@ -541,6 +541,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SpawnParticle
+      objectReference: {fileID: 0}
+    - target: {fileID: 7401914101916902776, guid: 6d8ece9c5cb28e44cbf1cb9190516f07,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7401914102036221300, guid: 6d8ece9c5cb28e44cbf1cb9190516f07,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d8ece9c5cb28e44cbf1cb9190516f07, type: 3}

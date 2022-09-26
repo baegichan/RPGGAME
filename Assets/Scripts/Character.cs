@@ -12,7 +12,7 @@ public class Character : MonoBehaviour
     public Vector3 location;
     public float turn_speed = 0;
     public GameObject cha_image;
-
+    
 
     public Weapon weapon;
     public Armor shiled;
@@ -60,6 +60,7 @@ public class Character : MonoBehaviour
     }
     public void Cha_Init()
     {
+        //여기도 같은 객체사용중
         max_ingame_status = cha_status;
         Euip(weapon);
         Euip(shiled);
@@ -68,6 +69,7 @@ public class Character : MonoBehaviour
         Euip(pants);
         Euip(shoes);
         Euip(glove);
+        //따로 넣어야됨 현재 같은 객체사용
         current_ingame_status = max_ingame_status;
 
     }
@@ -108,7 +110,11 @@ public class Character : MonoBehaviour
                 break;
                 
         }
-
+        current_ingame_status.HP -= damage;
+        if(current_ingame_status.HP<0)
+        {
+            Cha_Dead();
+        }
     }
     public void Damaged(Buff_Skill debuff_skill , Character enemy)
     {
@@ -146,6 +152,14 @@ public class Character : MonoBehaviour
             //case Buff.FROSTBITE
 
         }
+    }
+    public void Cha_Dead()
+    {
+        //죽는 애니메이션 컨트롤 혹은 파티클?
+        MapManager.s_instance.Obstacle((int)location.x, (int)location.z, false);
+        Gamemanager.s_instance.in_game_character.Remove(this);
+        Gamemanager.s_instance.max_speed_character.Remove(this);
+        Destroy(gameObject);
     }
     public void Buff_Update()
     {
@@ -253,6 +267,7 @@ public class Character : MonoBehaviour
         Gamemanager.s_instance.in_game_character.Add(this);
         cha_image = Gamemanager.s_instance.Spawnchaimage();
     }
+    
     public void Movable_block()
     {
        

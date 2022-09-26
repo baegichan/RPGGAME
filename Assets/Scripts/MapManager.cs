@@ -17,7 +17,7 @@ public class MapManager : MonoBehaviour
     public Block[,] current_map_data;
 
     public bool[,] obstacle_map;
-
+    public Character[,] character_map;
 
 
 
@@ -25,18 +25,28 @@ public class MapManager : MonoBehaviour
     {
         obstacle_map[x, z] = value;
     }
+    public void Cha_Move(int x, int z,Character value)
+    {
+        character_map[x, z] = value;
+    }
+    public Character Get_cha_from_map(int x ,int z)
+    {
+        return character_map[x, z];
+    }
     public void Spawn_Cha(GameObject default_cha, Vector3 point)
     {
 
         GameObject ins = Instantiate(default_cha, new Vector3(point.x, current_map_data[(int)point.x, (int)point.z].Block_obj.transform.position.y + 0.5f, point.z), Quaternion.identity);
         ins.GetComponent<Character>().location = point;
         Obstacle((int)point.x, (int)point.z, true);
+        Cha_Move((int)point.x, (int)point.z, ins.GetComponent<Character>());
     }
     public void Spawn_Monster(GameObject monster , Vector3 point)
     {
         GameObject ins = Instantiate(monster, new Vector3(point.x, current_map_data[(int)point.x, (int)point.z].Block_obj.transform.position.y + 0.5f, point.z), Quaternion.identity);
         ins.GetComponent<Character>().location = point;
         Obstacle((int)point.x, (int)point.z, true);
+        Cha_Move((int)point.x, (int)point.z, ins.GetComponent<Character>());
     }
     IEnumerator Player_Spawn_Routine(float time)
     {
@@ -57,6 +67,7 @@ public class MapManager : MonoBehaviour
         current_map_data = null;
         current_map_data = new Block[mapdata.Map_data.Length, mapdata.Map_data.Length];
         obstacle_map = new bool[mapdata.Map_data.Length, mapdata.Map_data.Length];
+        character_map = new Character[mapdata.Map_data.Length, mapdata.Map_data.Length];
         // Instantiate();
         for (int i = 0; i < mapdata.Map_data.Length; i++)
         {
