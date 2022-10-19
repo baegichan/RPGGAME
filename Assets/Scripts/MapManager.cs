@@ -18,9 +18,6 @@ public class MapManager : MonoBehaviour
 
     public bool[,] obstacle_map;
     public Character[,] character_map;
-
-
-
     public void Obstacle(int x, int z, bool value)
     {
         obstacle_map[x, z] = value;
@@ -291,7 +288,7 @@ public class MapManager : MonoBehaviour
 
                     }
                 }
-                if (current.x - 1 > 0)
+                if (current.x - 1 >= 0)
                 {
                     if (nodes[current.x - 1, current.z] != null)
                     {
@@ -315,9 +312,8 @@ public class MapManager : MonoBehaviour
                             nodes[current.x, current.z + 1].Set_before_node(current);
                         }
                     }
-
                 }
-                if (current.z - 1 > 0)
+                if (current.z - 1 >= 0)
                 {
                     if (nodes[current.x, current.z - 1] != null)
                     {

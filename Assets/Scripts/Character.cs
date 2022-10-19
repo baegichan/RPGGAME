@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 public class Character : MonoBehaviour
 {
     public string cha_name;
@@ -33,6 +34,8 @@ public class Character : MonoBehaviour
 
     public List<Buff_Skill> buff = new List<Buff_Skill>();
     public State current = State.DEFAULT;
+
+    public Action Level_up;
     public void Euip(Equipment target)
     {
         if(target!=null)
@@ -110,8 +113,10 @@ public class Character : MonoBehaviour
                 break;
                 
         }
+        Gamemanager.s_instance.Spawn_Damage_IMG(gameObject, damage);
         current_ingame_status.HP -= damage;
-        if(current_ingame_status.HP<0)
+       
+        if (current_ingame_status.HP<0)
         {
             Cha_Dead();
         }
@@ -120,6 +125,7 @@ public class Character : MonoBehaviour
     {
 
     }
+    
     public void Damaged(Buff_Skill buff_skill)
     {
         switch (buff_skill.bufftype)
@@ -221,6 +227,7 @@ public class Character : MonoBehaviour
             }
         }
     }
+   
     private void OnDestroy()
     {
         Destroy(cha_image);
@@ -358,8 +365,7 @@ public class Buff_Skill : Skill
 }
 public class Attack_Range
 {
-
-
+    
 }
 public enum attack_type
 {

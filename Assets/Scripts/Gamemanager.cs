@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 public class Gamemanager : MonoBehaviour
 {
     public static Gamemanager s_instance;
@@ -20,13 +20,23 @@ public class Gamemanager : MonoBehaviour
     public List<Character> in_game_character = new List<Character>();
     public List<Character> max_speed_character = new List<Character>();
     public bool Turn_Play = false;
-    public bool Game_Play = false;
+     bool Game_Play = false;
+    public bool INGAME
+    {
+        get {return Game_Play; }
+        set {
+            if (value) { in_game_canvas.SetActive(true); }
+            else { in_game_canvas.SetActive(false); }
+            Game_Play = value; 
+            }
+    }
     public Turn_Type Turn_Type = Turn_Type.NONE;
     public GameObject[] skill_buttons;
+    public GameObject damage_prefab;
     private Attack_Skill current_skill;
     public GameObject Spawnchaimage()
     {
-        return Instantiate(turn_ui, in_game_canvas.transform);
+        return Instantiate(turn_ui, turn_start.transform.position,Quaternion.identity,in_game_canvas.transform);
     }
     public void ChangeCurrentTarget(bool player)
     {
@@ -55,6 +65,13 @@ public class Gamemanager : MonoBehaviour
             }
         }
 #endif
+    }
+
+    public IEnumerator Delay_Turn2(Turn_Type next_turn, float time)
+    {
+        yield return new WaitForSeconds(time);
+        Turn(next_turn);
+
     }
     private void Awake()
     {
@@ -217,9 +234,15 @@ public class Gamemanager : MonoBehaviour
             }
         }     
     }
+    public void Spawn_Damage_IMG(GameObject target,int damage)
+    {
+        //test
+        GameObject ins_dmg = Instantiate(damage_prefab);
+        ins_dmg.GetComponentInChildren<TextMeshProUGUI>().text = System.Convert.ToString(damage);
+    }
     private void Update()
     {
-        if (Game_Play)
+        if (INGAME)
         {
             if (Input.GetKeyDown(KeyCode.Q))
             {
@@ -262,7 +285,12 @@ public class Gamemanager : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if(Game_Play)
+        if(Input.GetKeyDown(KeyCode.G))
+        {
+           
+           INGAME=INGAME?false:true;
+        }
+        if(INGAME)
         {
             
             Camera.main.transform.position = current_campos.position;
@@ -361,13 +389,15 @@ public class Gamemanager : MonoBehaviour
 
                                 if (current_turn_character != null)
                                 {
-                                    //캐릭터 맵이 없음, 바닥에서 플레이어로 역산하기 힘든상태;;
+                                    
                                    Character enermy = MapManager.s_instance.Get_cha_from_map((int)target.x_location, (int)target.z_location);
                                    if(current_skill!=null&&enermy!=null)
                                    {
+                                        MapManager.s_instance.AreaOff();
                                         enermy.Damaged(current_skill, current_turn_character);
-                                        Turn(Turn_Type.NONE);
-                                   }
+                                        StartCoroutine(Delay_Turn2(Turn_Type.NONE, 1));
+                                       
+                                    }
                                 }
                             }
                         }
