@@ -6,6 +6,8 @@ public class Gamemanager : MonoBehaviour
 {
     public static Gamemanager s_instance;
     GameObject COBJ;
+    public Character[] user_character_list;
+
 
     public GameObject in_game_canvas;
     public GameObject turn_ui;
@@ -415,6 +417,20 @@ public class Gamemanager : MonoBehaviour
         }
 
     }
+
+
+    public void Save_data()
+    {
+
+
+    }
+    public void Load_data()
+    {
+    
+    }
+    
+    
+
 }
 public enum Turn_Type
 {
@@ -424,5 +440,3 @@ public enum Turn_Type
 }
 
 
-//이동후 스킬누르면 각 스킬별 사거리 표시 (빨간색..?)
-//클릭하면 공격후 
