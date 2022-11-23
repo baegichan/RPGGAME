@@ -13,13 +13,17 @@ public class Quest : ScriptableObject
     public bool random_spawn;
     public int monster_num;
     
+
 }
+
 public enum Quest_type
 {
     DEFFENSE,
     ALLKILL,
-    MOVE
 }
+
+
+
 [System.Serializable]
 public class Reward
 {

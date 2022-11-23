@@ -12,6 +12,7 @@ public class Mapdata : ScriptableObject
     // Start is called before the first frame update
     public Map_Material[] Map_material;
     public Quest mainquest;
+   
 }
 [System.Serializable]
 public class Map_Array

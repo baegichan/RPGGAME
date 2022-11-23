@@ -21,8 +21,12 @@ public class Gamemanager : MonoBehaviour
     //List<List<GameObject>> map = new List<List<GameObject>>();
     public List<Character> in_game_character = new List<Character>();
     public List<Character> max_speed_character = new List<Character>();
+    
+
     public bool Turn_Play = false;
-     bool Game_Play = false;
+    bool Game_Play = false;
+
+
     public bool INGAME
     {
         get {return Game_Play; }
